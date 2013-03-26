@@ -4,7 +4,7 @@
 	<info module="parsac" organisation="br.com.caelum" />
 
 	<dependencies>
-		
+		<dependency org="com.thoughtworks.xstream" name="xstream" rev="1.4.4"/>		
 	</dependencies>
 
 </ivy-module>
