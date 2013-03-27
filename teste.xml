@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<cursos>
+<curso>
+	<sigla>FJ-23</sigla>
+	<titulo>VRaptor: web rápida e fácil com java</titulo>
+
+	<secoes>
+		<secao>
+			<numero>1</numero>
+			<titulo>Configuração do VRaptor</titulo>
+
+	<explicacao>
+Bem vindo ao curso de VRaptor da Caelum Ensino e Inovação!
+
+<h1>Frameworks web Java</h1>
+Desenvolver aplicações web usando Java é uma das opções mais procuradas pelos programadores, devido à todas as vantagens da plataforma. Muitos frameworks facilitam esse trabalho, e o mais conhecidos são o Struts, o Spring MVC, o  JSF, entre outros.
+Para facilitar ainda mais o desenvolvimento web, a Caelum criou o VRaptor, um framework que faz uso de
+todas as boas práticas de desenvolvimento recomendadas.
+
+<img src="http://s3.amazonaws.com/caelum-online-public/FJ-23/cap-1-vratpor-site.png" />
+
+[xml]
+<?xml version="1.0" encoding="UTF-8"?>
+	<web-app ....>
+		<display-name>vraptor-produtos</display-name>
+				 
+		 </filter-mapping>
+	</web-app>
+[/xml]
+
+Note que uma classe de domínio já existe no projeto: O modelo chamado <code>Produto contém </code>nome,        descrição, preço</code>.				
+[java]
+public class Produto {
+
+		private Long id;
+			
+	}
+[/java]
+
+			</explicacao>
+			
+			<exercicios>
+				<exercicio>
+					<tipo>Aberto</tipo>
+					<enunciado>
+				No Eclipse, busque pela aba <code>Servers</code>.
+Selecione <code>New -> Server</code> e escolha a versão do Tomcat. Em seguida, selecione a pasta de instalação do Tomcat, e clique em <code>Next</code>.
+
+Agora basta vincular o novo projeto ao Tomcat. Clique no projeto "vraptor-produtos" e depois em <code>Add</code>. Finalize a operação.
+
+Tudo configurado! Agora basta subirmos o Tomcat, clicando no servidor e escolhendo a opção <code>START</code>. Agora precisamos verificar se a aplicação está de pé. Para isso, basta abrir o seu navegador favorito e digitar a seguinte URL: http://localhost:8080/vraptor-produtos
+
+Enquanto isso, vamos olhar a saída da Console, mostrando que o VRaptor está subindo. Veja a mensagem de "VRaptor inicializado", e agora vamos ao Firefox.
+
+Digitando a URL<code>localhost:8080/vraptor-produtos</code>, qual a mensagem que aparece?
+
+					</enunciado>
+					
+					<resposta>
+					</resposta>
+				</exercicio>
+				<exercicio>
+					<tipo>Múltipla Escolha</tipo>
+					<enunciado>
+						No MVC a regra de negócio está em qual camada?
+					</enunciado>
+
+					<alternativas>
+						<alternativa>
+							<texto>Controller</texto>
+						<alternativa>
+						<alternativa>
+							<texto>View</texto>
+						<alternativa>
+						<alternativa>
+							<texto>Model</texto>
+						<alternativa>
+						<alternativa>
+							<texto>Espalhada em todas as camadas do MVC.</texto>
+						<alternativa>
+					</alternativas>
+					<resposta>
+						<alternativa>
+							<texto>Model</texto>
+						<alternativa>	
+					</resposta>
+				<exercicio>
+			<exercicios>
+		</secao>
+	</secoes>
+</curso>
+</cursos>
+
+
