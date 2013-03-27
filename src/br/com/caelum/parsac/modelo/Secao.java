@@ -2,6 +2,9 @@ package br.com.caelum.parsac.modelo;
 
 import java.util.List;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
+@XStreamAlias("secao")
 public class Secao {
 	
 	private int numero;

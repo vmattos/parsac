@@ -2,6 +2,9 @@ package br.com.caelum.parsac.modelo;
 
 import java.util.List;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
+@XStreamAlias("curso")
 public class Curso {
 	
 	private String sigla;

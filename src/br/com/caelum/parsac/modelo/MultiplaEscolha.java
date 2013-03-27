@@ -2,17 +2,20 @@ package br.com.caelum.parsac.modelo;
 
 import java.util.List;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
+@XStreamAlias("exercicio")
 public class MultiplaEscolha extends Exercicio {
 
-	private List<String> alternativas;
+	private List<Alternativa> alternativas;
 
-	public MultiplaEscolha(String enunciado, List<String> alternativas) {
+	public MultiplaEscolha(String enunciado, List<Alternativa> alternativas) {
 		
-		super("Multiplaescolha", enunciado);
+		super("Múltipla Escolha", enunciado);
 		this.alternativas = alternativas;
 	}
 
-	public List<String> getAlternativas() {
+	public List<Alternativa> getAlternativas() {
 		return alternativas;
 	}
 	

@@ -1,5 +1,8 @@
 package br.com.caelum.parsac.modelo;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
+@XStreamAlias("exercicio")
 public class Aberto extends Exercicio {
 	
 	private String resposta;
