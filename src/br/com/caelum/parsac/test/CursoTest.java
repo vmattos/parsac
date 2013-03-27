@@ -5,11 +5,12 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.caelum.parsac.modelo.Aberto;
 import br.com.caelum.parsac.modelo.Alternativa;
 import br.com.caelum.parsac.modelo.Curso;
 import br.com.caelum.parsac.modelo.Exercicio;
+import br.com.caelum.parsac.modelo.MultiplaEscolha;
 import br.com.caelum.parsac.modelo.Secao;
-import br.com.caelum.parsac.modelo.Tipo;
 
 import com.thoughtworks.xstream.XStream;
 
@@ -22,8 +23,8 @@ public class CursoTest {
 		alternativasEx2S1.add(new Alternativa("Op 1"));
 		alternativasEx2S1.add(new Alternativa("Op 2"));
 
-		Exercicio exercicio1Secao1 = new Exercicio(Tipo.ABERTO, "Enunciado exercício aberto");
-		Exercicio exercicio2Secao1 = new Exercicio(Tipo.MULTIPLAESCOLHA, "Enunciado exercício múltipla escolha");
+		Exercicio exercicio1Secao1 = new Aberto("Enunciado exercício aberto", "Resposta");
+		Exercicio exercicio2Secao1 = new MultiplaEscolha("Enunciado exercício múltipla escolha", alternativasEx2S1);
 
 		List<Exercicio> exerciciosSecao1 = new ArrayList<Exercicio>();
 
@@ -49,11 +50,14 @@ public class CursoTest {
 		xstream.processAnnotations(Curso.class);
 		xstream.processAnnotations(Exercicio.class);
 		xstream.processAnnotations(Alternativa.class);
+		xstream.processAnnotations(Aberto.class);
+		xstream.processAnnotations(MultiplaEscolha.class);
+		
 
 		File xml = new File("teste.xml");
 //		FileInputStream in = new FileInputStream(xml);
 		
-//		System.out.println(xstream.fromXML("<?xml version='1.0' encoding='UTF-8'?>  " +
+//		Curso cursoDes = (Curso)xstream.fromXML("<?xml version='1.0' encoding='UTF-8'?>  " +
 //				"								<curso>" +
 //				"									<sigla>FJ-00</sigla>" +
 //				"									<titulo>titulo</titulo>" +
@@ -63,21 +67,20 @@ public class CursoTest {
 //				"											<titulo>Titulo da secao</titulo>" +
 //				"											<explicacao>Explicacao</explicacao>" +
 //				"											<exercicios>" +
-//				"												<exercicio>" +
-//				"													<tipo>Aberto</tipo>" +
-//				"													<enunciado>" +
-//				"														Enunciado" +
-//				"													</enunciado>" +
-////				"													<resposta>" +
-////				"														La Resposta" +
-////				"													</resposta>" +
-//				"												</exercicio>" +
+//				"												<exercicio-aberto>" +
+//				"													<enunciado>Enunciado</enunciado>" +
+//				"													<resposta>La Resposta</resposta>" +
+//				"												</exercicio-aberto>" +
+//				"												<exercicio-multiplaEscolha>" +
+//				"												</exercicio-multiplaEscolha>" +
 //				"											</exercicios>" +
 //				"										</secao>" +
 //				"									</secoes>" +
-//				"								</curso>"));
+//				"								</curso>");
+		
+		Curso cursoDes = (Curso)xstream.fromXML(xml);
 		
 		String cursoXml = xstream.toXML(curso);
-		System.out.println(cursoXml);
+		System.out.println(cursoDes);
 	}
 }
