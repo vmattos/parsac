@@ -44,8 +44,8 @@ public class DeserializacaoTest {
 				"									</secoes>" +
 				"								</curso>");
 		
-		Curso arquivoDeserializado = (Curso)xstream.fromXML(xml);
-		
+		Curso arquivoDeserializado = (Curso) xstream.fromXML(xml);
+
 		System.out.println(arquivoDeserializado);
 	}
 }

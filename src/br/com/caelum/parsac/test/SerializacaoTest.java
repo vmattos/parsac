@@ -1,8 +1,9 @@
 package br.com.caelum.parsac.test;
 
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.thoughtworks.xstream.XStream;
 
 import br.com.caelum.parsac.modelo.Aberto;
 import br.com.caelum.parsac.modelo.Alternativa;
@@ -11,10 +12,17 @@ import br.com.caelum.parsac.modelo.Exercicio;
 import br.com.caelum.parsac.modelo.MultiplaEscolha;
 import br.com.caelum.parsac.modelo.Secao;
 
-public class CursoTest {
-
-	public static void main(String[] args) throws FileNotFoundException {
-
+public class SerializacaoTest {
+	
+	public static void main(String[] args) {
+		
+		XStream xstream = new XStream();
+		xstream.processAnnotations(Curso.class);
+		xstream.processAnnotations(Exercicio.class);
+		xstream.processAnnotations(Alternativa.class);
+		xstream.processAnnotations(Aberto.class);
+		xstream.processAnnotations(MultiplaEscolha.class);
+		
 		List<Alternativa> alternativasEx2S1 = new ArrayList<Alternativa>();
 
 		alternativasEx2S1.add(new Alternativa("Op 1"));
@@ -38,7 +46,9 @@ public class CursoTest {
 		secoes.add(secao1);
 
 		Curso curso = new Curso("FJ-00", "Formação Teste", secoes);
-
-		System.out.println(curso);
+		
+		System.out.println(xstream.toXML(curso));
+		
 	}
+
 }
