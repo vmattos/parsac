@@ -17,6 +17,6 @@ public class Aberto extends Exercicio {
 	}
 	
 	public String toString() {
-		return this.enunciado + "\n";
+		return this.enunciado + "\n\n" + this.resposta;
 	}
 }

@@ -14,5 +14,9 @@ public class Alternativa {
 	public String getTexto() {
 		return texto;
 	}
+	
+	public String toString() {
+		return this.texto;
+	}
 
 }

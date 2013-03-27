@@ -20,6 +20,6 @@ public class MultiplaEscolha extends Exercicio {
 	}
 	
 	public String toString() {
-		return this.enunciado + "\n" + this.alternativas;
+		return this.enunciado + "\n\n" + this.alternativas;
 	}
 }
