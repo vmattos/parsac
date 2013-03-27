@@ -33,18 +33,12 @@ public class CursoTest {
 
 		Secao secao1 = new Secao(1, "Testes com JUnit", "Explicacao da sessao",
 				exerciciosSecao1);
-		// Secao secao2 = new Secao(2, "Secao 2", "Explicacao da secao",
-		// exerciciosSecao2);
-		// Secao secao3 = new Secao(3, "Secao 3", "Explicacao da secao",
-		// exerciciosSecao3);
 
 		List<Secao> secoes = new ArrayList<Secao>();
 
 		secoes.add(secao1);
 
 		Curso curso = new Curso("FJ-00", "Formação Teste", secoes);
-
-		// System.out.println(curso);
 
 		XStream xstream = new XStream();
 		xstream.processAnnotations(Curso.class);
@@ -55,7 +49,6 @@ public class CursoTest {
 		
 
 		File xml = new File("teste.xml");
-//		FileInputStream in = new FileInputStream(xml);
 		
 //		Curso cursoDes = (Curso)xstream.fromXML("<?xml version='1.0' encoding='UTF-8'?>  " +
 //				"								<curso>" +
@@ -80,7 +73,6 @@ public class CursoTest {
 		
 		Curso cursoDes = (Curso)xstream.fromXML(xml);
 		
-		String cursoXml = xstream.toXML(curso);
 		System.out.println(cursoDes);
 	}
 }
