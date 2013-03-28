@@ -2,6 +2,7 @@ package br.com.caelum.parsac.test;
 
 import java.io.File;
 
+import br.com.caelum.parsac.builder.XStreamBuilder;
 import br.com.caelum.parsac.modelo.Aberto;
 import br.com.caelum.parsac.modelo.Alternativa;
 import br.com.caelum.parsac.modelo.Curso;
@@ -13,12 +14,8 @@ import com.thoughtworks.xstream.XStream;
 public class DeserializacaoTest {
 
 	public static void main(String[] args) {
-		XStream xstream = new XStream();
-		xstream.processAnnotations(Curso.class);
-		xstream.processAnnotations(Exercicio.class);
-		xstream.processAnnotations(Alternativa.class);
-		xstream.processAnnotations(Aberto.class);
-		xstream.processAnnotations(MultiplaEscolha.class);
+		
+		XStream xstream = new XStreamBuilder().processaAnotacoesXStream();
 
 		File xml = new File("teste.xml");
 
