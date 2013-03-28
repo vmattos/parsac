@@ -37,7 +37,12 @@
 		<ivy:retrieve />
 	</target>
 
-	<target name="compile">
+	<target name="clean-bin">
+		<delete dir="${bin}" />
+		<mkdir dir="${bin}" />
+	</target>
+
+	<target name="compile" depends="clean-bin">
 		<javac srcdir="${src}" destdir="${bin}">
 			<classpath refid="classpath" />
 		</javac>
