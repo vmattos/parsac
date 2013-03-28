@@ -6,12 +6,12 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 public class Exercicio {
 
 	protected String enunciado;
-	protected Alternativa alternaticaCorreta;
+	protected Alternativa alternativaCorreta;
 	private String resposta;
 
 	public Exercicio(String enunciado, Alternativa resposta) {
 		this.enunciado = enunciado;
-		this.alternaticaCorreta = resposta;
+		this.alternativaCorreta = resposta;
 	}
 
 	public Exercicio(String enunciado, String resposta) {
@@ -27,7 +27,7 @@ public class Exercicio {
 		if (this instanceof Aberto) {
 			return resposta;
 		} else {
-			return alternaticaCorreta.getTexto();
+			return alternativaCorreta.getTexto();
 		}
 	}
 
