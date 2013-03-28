@@ -48,4 +48,9 @@
 		</javac>
 	</target>
 
+	<target name="clean-dependencias">
+		<delete dir="${lib}" />
+		<mkdir dir="${lib}" />
+	</target>
+
 </project>
