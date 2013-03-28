@@ -18,6 +18,7 @@ public class XStreamBuilder {
 		xstream.processAnnotations(Alternativa.class);
 		xstream.processAnnotations(Aberto.class);
 		xstream.processAnnotations(MultiplaEscolha.class);
+		xstream.setMode(XStream.NO_REFERENCES);
 		
 		return xstream;
 	}
