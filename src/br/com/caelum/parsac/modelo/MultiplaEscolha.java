@@ -12,7 +12,7 @@ public class MultiplaEscolha extends Exercicio {
 
 	public MultiplaEscolha(String enunciado, List<Alternativa> alternativas,
 			Alternativa resposta) {
-		super(enunciado);
+		super(enunciado, resposta);
 		this.alternativas = alternativas;
 		this.resposta = resposta;
 	}

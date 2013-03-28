@@ -8,7 +8,7 @@ public class Aberto extends Exercicio {
 	private String resposta;
 
 	public Aberto(String enunciado, String resposta) {
-		super(enunciado);
+		super(enunciado, resposta);
 		this.resposta = resposta;
 	}
 
