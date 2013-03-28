@@ -21,8 +21,8 @@ public class MultiplaEscolha extends Exercicio {
 		return alternativas;
 	}
 
-	public Alternativa getResposta() {
-		return resposta;
+	public String getResposta() {
+		return this.resposta.getTexto();
 	}
 
 	public String toString() {
