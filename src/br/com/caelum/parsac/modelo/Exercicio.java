@@ -6,12 +6,13 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 public class Exercicio {
 
 	protected String enunciado;
-	
+
 	public Exercicio(String enunciado) {
 		this.enunciado = enunciado;
 	}
-	
+
 	public String getEnunciado() {
 		return enunciado;
 	}
+
 }

@@ -4,7 +4,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 @XStreamAlias("exercicio-aberto")
 public class Aberto extends Exercicio {
-	
+
 	private String resposta;
 
 	public Aberto(String enunciado, String resposta) {
@@ -15,7 +15,7 @@ public class Aberto extends Exercicio {
 	public String getResposta() {
 		return resposta;
 	}
-	
+
 	public String toString() {
 		return this.enunciado + "\n\n" + this.resposta;
 	}
