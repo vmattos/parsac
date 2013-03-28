@@ -19,31 +19,27 @@ public class DeserializacaoTest {
 		xstream.processAnnotations(Alternativa.class);
 		xstream.processAnnotations(Aberto.class);
 		xstream.processAnnotations(MultiplaEscolha.class);
-		
 
 		File xml = new File("teste.xml");
-		
-		Curso stringDeserializada = (Curso)xstream.fromXML("<?xml version='1.0' encoding='UTF-8'?>  " +
-				"								<curso>" +
-				"									<sigla>FJ-00</sigla>" +
-				"									<titulo>titulo</titulo>" +
-				"									<secoes>" +
-				"										<secao>" +
-				"											<numero>1</numero>" +
-				"											<titulo>Titulo da secao</titulo>" +
-				"											<explicacao>Explicacao</explicacao>" +
-				"											<exercicios>" +
-				"												<exercicio-aberto>" +
-				"													<enunciado>Enunciado</enunciado>" +
-				"													<resposta>La Resposta</resposta>" +
-				"												</exercicio-aberto>" +
-				"												<exercicio-multiplaEscolha>" +
-				"												</exercicio-multiplaEscolha>" +
-				"											</exercicios>" +
-				"										</secao>" +
-				"									</secoes>" +
-				"								</curso>");
-		
+
+		Curso stringDeserializada = (Curso) xstream
+				.fromXML("<?xml version='1.0' encoding='UTF-8'?>  "
+						+ "								<curso>" + "									<sigla>FJ-00</sigla>"
+						+ "									<titulo>titulo</titulo>"
+						+ "									<secoes>" + "										<secao>"
+						+ "											<numero>1</numero>"
+						+ "											<titulo>Titulo da secao</titulo>"
+						+ "											<explicacao>Explicacao</explicacao>"
+						+ "											<exercicios>"
+						+ "												<exercicio-aberto>"
+						+ "													<enunciado>Enunciado</enunciado>"
+						+ "													<resposta>La Resposta</resposta>"
+						+ "												</exercicio-aberto>"
+						+ "												<exercicio-multiplaEscolha>"
+						+ "												</exercicio-multiplaEscolha>"
+						+ "											</exercicios>" + "										</secao>"
+						+ "									</secoes>" + "								</curso>");
+
 		Curso arquivoDeserializado = (Curso) xstream.fromXML(xml);
 
 		System.out.println(arquivoDeserializado);

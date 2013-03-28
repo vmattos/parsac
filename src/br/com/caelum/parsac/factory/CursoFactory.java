@@ -13,7 +13,7 @@ import br.com.caelum.parsac.modelo.Secao;
 public class CursoFactory {
 
 	public Curso constroiCurso() {
-		
+
 		List<Alternativa> alternativasEx2S1 = new ArrayList<Alternativa>();
 
 		alternativasEx2S1.add(new Alternativa("Op 1"));

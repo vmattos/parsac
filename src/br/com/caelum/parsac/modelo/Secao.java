@@ -6,12 +6,12 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 @XStreamAlias("secao")
 public class Secao {
-	
+
 	private int numero;
 	private String titulo;
 	private String explicacao;
 	private List<Exercicio> exercicios;
-	
+
 	public Secao(int numero, String titulo, String explicacao,
 			List<Exercicio> exercicios) {
 
@@ -36,8 +36,9 @@ public class Secao {
 	public List<Exercicio> getExercicios() {
 		return exercicios;
 	}
-	
+
 	public String toString() {
-		return "Seção " + this.numero + ": " + this.titulo + "\n" + this.explicacao + "\n\n" + this.exercicios;
+		return "Seção " + this.numero + ": " + this.titulo + "\n"
+				+ this.explicacao + "\n\n" + this.exercicios;
 	}
 }
