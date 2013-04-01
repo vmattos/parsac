@@ -7,6 +7,8 @@ import com.thoughtworks.xstream.annotations.XStreamOmitField;
 public class Exercicio {
 
 	protected String enunciado;
+	
+	@XStreamOmitField
 	protected Alternativa alternativaCorreta;
 	
 	@XStreamOmitField
