@@ -11,8 +11,7 @@ import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
 public class alternativaCorretaConverter implements Converter {
 
 	public boolean canConvert(Class clazz) {
-		return true;
-		// return clazz.equals(Person.class);
+		return clazz.equals(Alternativa.class);
 	}
 
 	public void marshal(Object value, HierarchicalStreamWriter writer,
@@ -28,11 +27,7 @@ public class alternativaCorretaConverter implements Converter {
 
 	public Object unmarshal(HierarchicalStreamReader reader,
 			UnmarshallingContext context) {
-		// Person person = new Person();
-		// reader.moveDown();
-		// person.setName(reader.getValue());
-		// reader.moveUp();
-		// return person;
+		
 		return null;
 	}
 
