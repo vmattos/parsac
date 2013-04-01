@@ -15,6 +15,10 @@ public class Alternativa {
 		return texto;
 	}
 
+	public void setTexto(String texto) {
+		this.texto = texto;
+	}
+	
 	public String toString() {
 		return this.texto;
 	}

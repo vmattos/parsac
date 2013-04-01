@@ -28,7 +28,13 @@ public class AlternativaCorretaConverter implements Converter {
 	public Object unmarshal(HierarchicalStreamReader reader,
 			UnmarshallingContext context) {
 		
-		return null;
+		Alternativa alternativa = new Alternativa("Op1");
+		reader.moveDown();
+		reader.moveDown();
+		alternativa.setTexto(reader.getValue());
+		reader.moveUp();
+		return alternativa;
+		
 	}
 
 }
