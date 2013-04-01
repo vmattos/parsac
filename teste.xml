@@ -7,26 +7,17 @@
 			<numero>1</numero>
 			<titulo>Configuração do VRaptor</titulo>
 
-			<explicacao>
-				Bem vindo ao curso de VRaptor da Caelum Ensino e Inovação!
-			</explicacao>
+			<explicacao>Bem vindo ao curso de VRaptor da Caelum Ensino e Inovação!</explicacao>
 			
 			<exercicios>
 				<exercicio-aberto>
-					<enunciado>
-						Enquanto isso, vamos olhar a saída da Console, mostrando que o VRaptor está subindo. 
-						Veja a mensagem de "VRaptor inicializado", e agora vamos ao Firefox.
-					</enunciado>
+					<enunciado>Enquanto isso, vamos olhar a saída do Console, mostrando que o VRaptor está subindo. Veja a mensagem de "VRaptor inicializado", e agora vamos ao Firefox.</enunciado>
 					
-					<resposta>
-						Batata
-					</resposta>
+					<resposta>Batata</resposta>
 				</exercicio-aberto>
 				
 				<exercicio-multiplaEscolha>
-					<enunciado>
-						No MVC a regra de negócio está em qual camada?
-					</enunciado>
+					<enunciado>No MVC a regra de negócio está em qual camada?</enunciado>
 
 					<alternativas>
 						<alternativa>
@@ -44,7 +35,9 @@
 					</alternativas>
 					
 					<resposta>
-						<texto>Alternativa A</texto>
+						<alternativa>
+							<texto>Alternativa A</texto>
+						</alternativa>
 					</resposta>
 				</exercicio-multiplaEscolha>
 			</exercicios>
