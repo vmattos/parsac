@@ -8,6 +8,7 @@ import org.junit.Test;
 import br.com.caelum.parsac.builder.XStreamBuilder;
 import br.com.caelum.parsac.modelo.Curso;
 import br.com.caelum.parsac.modelo.Exercicio;
+import br.com.caelum.parsac.modelo.MultiplaEscolha;
 import br.com.caelum.parsac.modelo.Secao;
 
 import com.thoughtworks.xstream.XStream;
@@ -42,7 +43,8 @@ public class DeserializacaoTest {
 		Curso arquivoDeserializado = (Curso) xstream.fromXML(xml);
 		Secao secao = arquivoDeserializado.getSecoes().get(0);
 		Exercicio exercicioAberto = secao.getExercicios().get(0);
-		Exercicio exercicioMultiplaEscolha = secao.getExercicios().get(1);
+		MultiplaEscolha exercicioMultiplaEscolha = (MultiplaEscolha) secao
+				.getExercicios().get(1);
 
 		Assert.assertEquals("FJ-23", arquivoDeserializado.getSigla());
 		Assert.assertEquals("VRaptor: web rápida e fácil com java",
@@ -58,6 +60,14 @@ public class DeserializacaoTest {
 		Assert.assertEquals("Batata", exercicioAberto.getResposta());
 		Assert.assertEquals("No MVC a regra de negócio está em qual camada?",
 				exercicioMultiplaEscolha.getEnunciado());
+		Assert.assertEquals("Controller", exercicioMultiplaEscolha
+				.getAlternativas().get(0).getTexto());
+		Assert.assertEquals("View", exercicioMultiplaEscolha.getAlternativas()
+				.get(1).getTexto());
+		Assert.assertEquals("Model", exercicioMultiplaEscolha.getAlternativas()
+				.get(2).getTexto());
+		Assert.assertEquals("Espalhada em todas as camadas do MVC",
+				exercicioMultiplaEscolha.getAlternativas().get(3).getTexto());
 		Assert.assertEquals("Alternativa A",
 				exercicioMultiplaEscolha.getResposta());
 	}
