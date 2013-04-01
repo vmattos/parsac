@@ -1,12 +1,15 @@
 package br.com.caelum.parsac.modelo;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
 @XStreamAlias("exercicio")
 public class Exercicio {
 
 	protected String enunciado;
 	protected Alternativa alternativaCorreta;
+	
+	@XStreamOmitField
 	private String resposta;
 
 	public Exercicio(String enunciado, Alternativa resposta) {
