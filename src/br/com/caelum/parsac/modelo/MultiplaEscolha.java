@@ -2,7 +2,7 @@ package br.com.caelum.parsac.modelo;
 
 import java.util.List;
 
-import br.com.caelum.parsac.util.alternativaCorretaConverter;
+import br.com.caelum.parsac.util.AlternativaCorretaConverter;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamConverter;
@@ -12,7 +12,7 @@ public class MultiplaEscolha extends Exercicio {
 
 	private List<Alternativa> alternativas;
 	
-	@XStreamConverter(alternativaCorretaConverter.class)
+	@XStreamConverter(AlternativaCorretaConverter.class)
 	private Alternativa resposta;
 
 	public MultiplaEscolha(String enunciado, List<Alternativa> alternativas,
