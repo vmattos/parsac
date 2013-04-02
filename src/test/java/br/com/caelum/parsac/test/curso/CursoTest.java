@@ -21,20 +21,30 @@ public class CursoTest {
 		MultiplaEscolha exercicioMultiplaEscolha = (MultiplaEscolha) secao
 				.getExercicios().get(1);
 
-		Assert.assertEquals("FJ-00", curso.getSigla());
-		Assert.assertEquals("Formação Teste", curso.getTitulo());
+		Assert.assertEquals("FJ-23", curso.getSigla());
+		Assert.assertEquals("VRaptor: web rápida e fácil com java",
+				curso.getTitulo());
 		Assert.assertEquals(1, secao.getNumero());
-		Assert.assertEquals("Testes com JUnit", secao.getTitulo());
-		Assert.assertEquals("Explicacao da sessao", secao.getExplicacao());
-		Assert.assertEquals("Enunciado exercício aberto",
+		Assert.assertEquals("Configuração do VRaptor", secao.getTitulo());
+		Assert.assertEquals(
+				"Bem vindo ao curso de VRaptor da Caelum Ensino e Inovação!",
+				secao.getExplicacao());
+		Assert.assertEquals(
+				"Enquanto isso, vamos olhar a saída do Console, mostrando que o VRaptor está subindo. Veja a mensagem de \"VRaptor inicializado\", e agora vamos ao Firefox.",
 				exercicioAberto.getEnunciado());
-		Assert.assertEquals("Enunciado exercício múltipla escolha",
+		Assert.assertEquals("Batata", exercicioAberto.getResposta());
+		Assert.assertEquals("No MVC a regra de negócio está em qual camada?",
 				exercicioMultiplaEscolha.getEnunciado());
-		Assert.assertEquals("Op 1", exercicioMultiplaEscolha.getAlternativas()
-				.get(0).getTexto());
-		Assert.assertEquals("Op 2", exercicioMultiplaEscolha.getAlternativas()
+		Assert.assertEquals("Controller", exercicioMultiplaEscolha
+				.getAlternativas().get(0).getTexto());
+		Assert.assertEquals("View", exercicioMultiplaEscolha.getAlternativas()
 				.get(1).getTexto());
-		Assert.assertEquals("Op 1", exercicioMultiplaEscolha.getResposta());
+		Assert.assertEquals("Model", exercicioMultiplaEscolha.getAlternativas()
+				.get(2).getTexto());
+		Assert.assertEquals("Espalhada em todas as camadas do MVC",
+				exercicioMultiplaEscolha.getAlternativas().get(3).getTexto());
+		Assert.assertEquals("Alternativa A",
+				exercicioMultiplaEscolha.getResposta());
 
 	}
 
