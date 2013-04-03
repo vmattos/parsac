@@ -55,7 +55,7 @@ public class DeserializacaoTest {
 				"Bem vindo ao curso de VRaptor da Caelum Ensino e Inovação!",
 				secao.getExplicacao());
 		Assert.assertEquals(
-				"Enquanto isso, vamos olhar a saída do Console, mostrando que o VRaptor está subindo. Veja a mensagem de \"VRaptor inicializado\", e agora vamos ao Firefox.",
+				"Enquanto isso, vamos olhar a saída do Console, mostrando que o VRaptor está subindo. Veja a mensagem de VRaptor inicializado, e agora vamos ao Firefox.",
 				exercicioAberto.getEnunciado());
 		Assert.assertEquals("Batata", exercicioAberto.getResposta());
 		Assert.assertEquals("No MVC a regra de negócio está em qual camada?",
