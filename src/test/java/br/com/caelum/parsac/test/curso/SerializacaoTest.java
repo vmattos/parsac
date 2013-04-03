@@ -22,23 +22,23 @@ public class SerializacaoTest {
 		XStream xstream = new XStreamBuilder().processaAnotacoesXStream();
 
 		Curso curso = new CursoFactory().constroiCurso();
-		
+
 		String cursoXml = xstream.toXML(curso);
-		
-		String xml = ""; 
+
+		String xml = "";
 
 		Scanner sc = new Scanner(new FileReader("teste.xml"));
-		
+
 		while (sc.hasNext()) {
 			xml += sc.nextLine() + "\n";
 		}
-		
+
 		xml = xml.replaceAll("\t", "");
 		xml = xml.replaceAll(" ", "");
 		xml = xml.replaceAll("\n", "");
 		cursoXml = cursoXml.replaceAll(" ", "");
 		cursoXml = cursoXml.replaceAll("\n", "");
-		
+
 		Assert.assertEquals(xml, cursoXml);
 
 	}

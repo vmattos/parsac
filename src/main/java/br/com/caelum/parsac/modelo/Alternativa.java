@@ -18,7 +18,7 @@ public class Alternativa {
 	public void setTexto(String texto) {
 		this.texto = texto;
 	}
-	
+
 	public String toString() {
 		return this.texto;
 	}

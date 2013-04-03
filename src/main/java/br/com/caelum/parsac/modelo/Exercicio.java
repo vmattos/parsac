@@ -7,10 +7,10 @@ import com.thoughtworks.xstream.annotations.XStreamOmitField;
 public class Exercicio {
 
 	protected String enunciado;
-	
+
 	@XStreamOmitField
 	protected Alternativa alternativaCorreta;
-	
+
 	@XStreamOmitField
 	private String resposta;
 
@@ -27,7 +27,7 @@ public class Exercicio {
 	public String getEnunciado() {
 		return enunciado;
 	}
-	
+
 	public String getResposta() {
 		if (this instanceof Aberto) {
 			return resposta;

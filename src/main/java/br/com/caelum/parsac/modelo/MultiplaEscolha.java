@@ -11,7 +11,7 @@ import com.thoughtworks.xstream.annotations.XStreamConverter;
 public class MultiplaEscolha extends Exercicio {
 
 	private List<Alternativa> alternativas;
-	
+
 	@XStreamConverter(AlternativaCorretaConverter.class)
 	private Alternativa resposta;
 

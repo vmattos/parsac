@@ -16,25 +16,25 @@ public class AlternativaCorretaConverter implements Converter {
 
 	public void marshal(Object value, HierarchicalStreamWriter writer,
 			MarshallingContext context) {
-		
+
 		Alternativa alternativa = (Alternativa) value;
 		writer.startNode("alternativa");
 		writer.startNode("texto");
 		writer.setValue(alternativa.getTexto());
 		writer.endNode();
-		writer.endNode();		
+		writer.endNode();
 	}
 
 	public Object unmarshal(HierarchicalStreamReader reader,
 			UnmarshallingContext context) {
-		
+
 		Alternativa alternativa = new Alternativa("Op1");
 		reader.moveDown();
 		reader.moveDown();
 		alternativa.setTexto(reader.getValue());
 		reader.moveUp();
 		return alternativa;
-		
+
 	}
 
 }
