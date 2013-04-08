@@ -2,9 +2,13 @@ package br.com.caelum.parsac.modelo;
 
 import java.util.List;
 
+import br.com.caelum.parsac.util.SecaoConverter;
+
 import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamConverter;
 
 @XStreamAlias("secao")
+@XStreamConverter(SecaoConverter.class)
 public class Secao {
 
 	private int numero;
@@ -12,6 +16,9 @@ public class Secao {
 	private String explicacao;
 	private List<Exercicio> exercicios;
 
+	public Secao() {
+	}
+	
 	public Secao(int numero, String titulo, String explicacao,
 			List<Exercicio> exercicios) {
 
@@ -35,6 +42,22 @@ public class Secao {
 
 	public List<Exercicio> getExercicios() {
 		return exercicios;
+	}
+
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	public void setExplicacao(String explicacao) {
+		this.explicacao = explicacao;
+	}
+
+	public void setExercicios(List<Exercicio> exercicios) {
+		this.exercicios = exercicios;
 	}
 
 	public String toString() {
