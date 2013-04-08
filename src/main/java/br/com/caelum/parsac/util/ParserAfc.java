@@ -33,6 +33,9 @@ public class ParserAfc {
 		string = string.replaceAll("<em>", "::");
 		string = string.replaceAll("</em>", "::");
 		
+		string = string.replaceAll("<code>", "%%");
+		string = string.replaceAll("</code>", "%%");
+		
 		return string;
 	}
 }
