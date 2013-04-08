@@ -30,6 +30,8 @@ public class ParserAfc {
 		string = string.replaceAll("<(b|strong|u)>", "**");
 		string = string.replaceAll("</(b|strong|u)>", "**");
 		
+		string = string.replaceAll("<em>", "::");
+		string = string.replaceAll("</em>", "::");
 		
 		return string;
 	}
