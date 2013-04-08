@@ -27,6 +27,9 @@ public class ParserAfc {
 			string = string.replaceAll(Pattern.quote("[/") + "(" + linguagem + ")" + Pattern.quote("]"), "[/code]");
 		}
 		
+		string = string.replaceAll("<(b|strong|u)>", "**");
+		string = string.replaceAll("</(b|strong|u)>", "**");
+		
 		
 		return string;
 	}
