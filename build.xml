@@ -61,6 +61,7 @@
 	<target name="prepara-diretorio-curso">
 		<delete dir="${curso.dir}" />
 		<mkdir dir="${curso.dir}" />
+		<mkdir dir="${curso.dir}/images" />
 	</target>
 
 </project>
