@@ -53,4 +53,9 @@
 		<mkdir dir="${lib}" />
 	</target>
 
+	<target name="prepara-testes">
+		<delete dir="${afc}" />
+		<mkdir dir="${afc}" />
+	</target>
+
 </project>
