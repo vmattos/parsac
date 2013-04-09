@@ -43,6 +43,12 @@ public class ParserAfc {
 
 		string = string.replaceAll("<h1>", "[section ");
 		string = string.replaceAll("</h1>", "]");
+		
+		string = string.replaceAll("<(ul|ol)>", "[list]");
+		string = string.replaceAll("</(ul|ol)>", "[/list]");
+		
+		string = string.replaceAll("<li>", "*");
+		string = string.replaceAll("</li>", "");
 
 		return string;
 	}
