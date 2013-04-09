@@ -6,6 +6,7 @@
 	<dependencies>
 		<dependency org="com.thoughtworks.xstream" name="xstream" rev="1.4.4"/>		
 		<dependency org="junit" name="junit" rev="4.11"/>
+		<dependency org="org.apache.ant" name="ant" rev="1.9.0"/>
 	</dependencies>
 
 </ivy-module>
