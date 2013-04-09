@@ -17,8 +17,9 @@ public class Secao {
 	private List<Exercicio> exercicios;
 
 	public Secao() {
+
 	}
-	
+
 	public Secao(int numero, String titulo, String explicacao,
 			List<Exercicio> exercicios) {
 

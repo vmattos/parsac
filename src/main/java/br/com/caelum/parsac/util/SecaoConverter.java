@@ -1,6 +1,5 @@
 package br.com.caelum.parsac.util;
 
-import br.com.caelum.parsac.modelo.Alternativa;
 import br.com.caelum.parsac.modelo.Secao;
 
 import com.thoughtworks.xstream.converters.Converter;
@@ -24,7 +23,7 @@ public class SecaoConverter implements Converter {
 			UnmarshallingContext context) {
 
 		Secao secao = new Secao();
-		
+
 		reader.moveDown();
 		secao.setNumero(Integer.parseInt(reader.getValue()));
 		reader.moveUp();
@@ -34,7 +33,7 @@ public class SecaoConverter implements Converter {
 		reader.moveDown();
 		secao.setExplicacao(reader.getValue());
 		reader.moveUp();
-		
+
 		return secao;
 
 	}
