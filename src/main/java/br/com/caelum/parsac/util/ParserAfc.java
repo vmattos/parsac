@@ -32,23 +32,26 @@ public class ParserAfc {
 					+ ")" + Pattern.quote("]"), "[/code]");
 		}
 
-		string = string.replaceAll("<(b|strong|u)>", "**");
-		string = string.replaceAll("</(b|strong|u)>", "**");
+		string = string.replaceAll("<[ ]*(b|strong|u)[ ]*>", "**");
+		string = string.replaceAll("<[ ]*/[ ]*(b|strong|u)[ ]*>", "**");
 
-		string = string.replaceAll("<em>", "::");
-		string = string.replaceAll("</em>", "::");
+		string = string.replaceAll("<[ ]*em[ ]*>", "::");
+		string = string.replaceAll("<[ ]*/[ ]*em[ ]*>", "::");
 
-		string = string.replaceAll("<code>", "%%");
-		string = string.replaceAll("</code>", "%%");
+		string = string.replaceAll("<[ ]*code[ ]*>", "%%");
+		string = string.replaceAll("<[ ]*/[ ]*code[ ]*>", "%%");
 
-		string = string.replaceAll("<h1>", "[section ");
-		string = string.replaceAll("</h1>", "]");
-		
-		string = string.replaceAll("<(ul|ol)>", "[list]");
-		string = string.replaceAll("</(ul|ol)>", "[/list]");
-		
-		string = string.replaceAll("<li>", "*");
-		string = string.replaceAll("</li>", "");
+		string = string.replaceAll("<[ ]*h1[ ]*>", "[section ");
+		string = string.replaceAll("<[ ]*/[ ]*h1[ ]*>", "]");
+
+		string = string.replaceAll("<[ ]*(ul|ol)[ ]*>", "[list]");
+		string = string.replaceAll("<[ ]*/[ ]*(ul|ol)[ ]*>", "[/list]");
+
+		string = string.replaceAll("<[ ]*li[ ]*>", "*");
+		string = string.replaceAll("<[ ]*/[ ]*li[ ]*>", "");
+
+		string = string.replaceAll("<[ ]*hr[ ]*>", "");
+		string = string.replaceAll("<[ ]*hr[ ]*/[ ]*>", "");
 
 		return string;
 	}
