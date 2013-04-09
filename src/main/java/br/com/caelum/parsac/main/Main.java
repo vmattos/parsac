@@ -8,6 +8,7 @@ import java.io.IOException;
 import br.com.caelum.parsac.builder.XStreamBuilder;
 import br.com.caelum.parsac.modelo.Curso;
 import br.com.caelum.parsac.modelo.Secao;
+import br.com.caelum.parsac.util.AntBuilder;
 import br.com.caelum.parsac.util.ParserAfc;
 
 import com.thoughtworks.xstream.XStream;
@@ -20,6 +21,10 @@ public class Main {
 		File xml = new File("teste.xml");
 		ParserAfc parser = new ParserAfc();
 		Curso arquivoDeserializado = (Curso) xstream.fromXML(xml);
+		
+		AntBuilder ant = new AntBuilder();
+		ant.setNomeDoDiretorio(arquivoDeserializado.getSigla());
+		ant.build();
 
 		for (Secao secao : arquivoDeserializado.getSecoes()) {
 			int numeroDaSecao = secao.getNumero();
