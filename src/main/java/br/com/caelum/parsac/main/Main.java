@@ -27,7 +27,7 @@ public class Main {
 			String nomeAfc = secao.getTitulo().replaceAll(" ", "-")
 					.toLowerCase();
 
-			File arquivoAfc = new File(numeroDaSecao + "-" + nomeAfc + ".afc");
+			File arquivoAfc = new File("curso/" + numeroDaSecao + "-" + nomeAfc + ".afc");
 
 			BufferedWriter br = new BufferedWriter(new FileWriter(arquivoAfc));
 
