@@ -64,4 +64,8 @@
 		<mkdir dir="${curso.dir}/images" />
 	</target>
 
+	<target name="baixa-imagens"> 
+		<get src="${img.url}" dest="${curso.dir}/images" usetimestamp="false" />
+	</target>
+
 </project>
