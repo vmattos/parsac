@@ -53,6 +53,10 @@ public class ParserAfc {
 		string = string.replaceAll("<[ ]*hr[ ]*>", "");
 		string = string.replaceAll("<[ ]*hr[ ]*/[ ]*>", "");
 
+		string = string.replaceAll("<[ ]*a[ ]*href[ ]*=[ ]*\"", "");
+		string = string
+				.replaceAll("\"[ ]*>[a-z A-Z_0-9]*<[ ]*/[ ]*a[ ]*>", "");
+
 		return string;
 	}
 

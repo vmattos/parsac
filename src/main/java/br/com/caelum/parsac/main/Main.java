@@ -4,7 +4,6 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.regex.Pattern;
 
 import br.com.caelum.parsac.builder.XStreamBuilder;
 import br.com.caelum.parsac.modelo.Curso;
@@ -14,14 +13,14 @@ import br.com.caelum.parsac.util.ParserAfc;
 import com.thoughtworks.xstream.XStream;
 
 public class Main {
-	
+
 	public static void main(String[] args) throws IOException {
-		
+
 		XStream xstream = new XStreamBuilder().processaAnotacoesXStream();
 		File xml = new File("teste.xml");
 		ParserAfc parser = new ParserAfc();
 		Curso arquivoDeserializado = (Curso) xstream.fromXML(xml);
-		
+
 		for (Secao secao : arquivoDeserializado.getSecoes()) {
 			int numeroDaSecao = secao.getNumero();
 
