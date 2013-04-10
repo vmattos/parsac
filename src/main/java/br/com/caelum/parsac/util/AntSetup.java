@@ -25,6 +25,7 @@ public class AntSetup {
 	public void baixaImagens() {
 		for (String imagem : listaDeImagens) {
 			p.setUserProperty("img.url", imagem);
+			System.out.println(">>> " + imagem);
 			p.executeTarget("baixa-imagens");
 		}
 	}
