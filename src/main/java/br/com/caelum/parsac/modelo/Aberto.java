@@ -7,8 +7,15 @@ public class Aberto extends Exercicio {
 
 	private String resposta;
 
+	public Aberto() {
+	}
+
 	public Aberto(String enunciado, String resposta) {
 		super(enunciado, resposta);
+		this.resposta = resposta;
+	}
+	
+	public void setResposta(String resposta) {
 		this.resposta = resposta;
 	}
 
