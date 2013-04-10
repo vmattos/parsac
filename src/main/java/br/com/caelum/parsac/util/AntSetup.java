@@ -22,7 +22,7 @@ public class AntSetup {
 		this.nomeDoDiretorio = nomeDoDiretorio;
 	}
 
-	private void baixaImagens() {
+	public void baixaImagens() {
 		for (String imagem : listaDeImagens) {
 			p.setUserProperty("img.url", imagem);
 			p.executeTarget("baixa-imagens");
@@ -45,7 +45,6 @@ public class AntSetup {
 		p.addReference("ant.projectHelper", helper);
 		helper.parse(p, buildFile);
 		p.executeTarget("prepara-diretorio-curso");
-		baixaImagens();
 	}
 
 }
