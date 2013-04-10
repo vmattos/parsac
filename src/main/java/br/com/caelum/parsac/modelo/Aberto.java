@@ -26,4 +26,8 @@ public class Aberto extends Exercicio {
 	public String toString() {
 		return this.enunciado + "\n\n" + this.resposta;
 	}
+
+	public void setEnunciado(String enunciado) {
+		this.enunciado = enunciado;
+	}
 }
