@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
+import br.com.caelum.parsac.modelo.Aberto;
 import br.com.caelum.parsac.modelo.Curso;
 import br.com.caelum.parsac.modelo.Secao;
 
@@ -58,12 +59,10 @@ public class ParserAfc {
 
 		string = string.replaceAll("<[ ]*a[ ]*href[ ]*=[ ]*\"", "");
 		string = string.replaceAll("\"[ ]*>[a-z A-Z_0-9]*<[ ]*/[ ]*a[ ]*>", "");
-		
+
 		string = string.replaceAll("<[ ]*img src=\"", "[img images/");
 		string = string.replaceAll("http(s)*://[a-z A-Z_0-9./-]*/", "");
 		string = string.replaceAll("\"(|/| | /)>", "]");
-		
-
 
 		return string;
 	}
@@ -82,7 +81,7 @@ public class ParserAfc {
 		}
 
 		scanner.close();
-		
+
 		return links;
 	}
 
@@ -92,6 +91,10 @@ public class ParserAfc {
 		String texto = "[chapter " + secao.getTitulo() + "]";
 
 		texto += "\n" + parseiaTagsOnline(secao.getExplicacao());
+
+		for (Aberto aberto : secao.getAbertos()) {
+			texto += "\n" + parseiaTagsOnline(aberto.getEnunciado());
+		}
 
 		return texto;
 	}
