@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.List;
 
 import br.com.caelum.parsac.builder.XStreamBuilder;
 import br.com.caelum.parsac.modelo.Curso;
@@ -16,13 +17,17 @@ import com.thoughtworks.xstream.XStream;
 public class Main {
 
 	public static void main(String[] args) throws IOException {
+		
+		System.out.println("PARSAC");
 
 		XStream xstream = new XStreamBuilder().processaAnotacoesXStream();
 		File xml = new File("teste.xml");
 		ParserAfc parser = new ParserAfc();
 		Curso arquivoDeserializado = (Curso) xstream.fromXML(xml);
 		
+		
 		AntSetup ant = new AntSetup();
+		System.out.println("Criando diretorio " + arquivoDeserializado.getSigla());
 		ant.setNomeDoDiretorio(arquivoDeserializado.getSigla());
 		ant.execute();
 
@@ -39,11 +44,17 @@ public class Main {
 			String cursoParseado = parser.parseiaCurso(arquivoDeserializado,
 					numeroDaSecao - 1);
 
-			System.out.println(cursoParseado);
-
+			System.out.println("Parseando o XML em AFC...");
 			br.write(cursoParseado);
 			br.close();
+			
+			System.out.println("Baixando as imagens...");
+			List<String> listaDeImagens = parser.pegaLinksDasImagens(secao.getExplicacao());
+			ant.setListaDeImagens(listaDeImagens);
+			ant.baixaImagens();
 		}
+		
+		System.out.println("Terminado.");
 
 	}
 }
