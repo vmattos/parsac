@@ -27,7 +27,7 @@ public class Main {
 		
 		
 		AntSetup ant = new AntSetup();
-		System.out.println("Criando diretorio " + arquivoDeserializado.getSigla());
+		System.out.println("Criando diretorio " + arquivoDeserializado.getSigla() + "...");
 		ant.setNomeDoDiretorio(arquivoDeserializado.getSigla());
 		ant.execute();
 
@@ -52,6 +52,7 @@ public class Main {
 			List<String> listaDeImagens = parser.pegaLinksDasImagens(secao.getExplicacao());
 			ant.setListaDeImagens(listaDeImagens);
 			ant.baixaImagens();
+			
 		}
 		
 		System.out.println("Terminado.");
