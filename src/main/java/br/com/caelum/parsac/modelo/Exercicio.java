@@ -13,6 +13,9 @@ public class Exercicio {
 
 	@XStreamOmitField
 	private String resposta;
+	
+	public Exercicio() {
+	}
 
 	public Exercicio(String enunciado, Alternativa resposta) {
 		this.enunciado = enunciado;
