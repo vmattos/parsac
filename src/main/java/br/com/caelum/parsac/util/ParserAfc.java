@@ -1,7 +1,6 @@
 package br.com.caelum.parsac.util;
 
 import java.io.IOException;
-import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -60,37 +59,26 @@ public class ParserAfc {
 		string = string.replaceAll("<[ ]*a[ ]*href[ ]*=[ ]*\"", "");
 		string = string.replaceAll("\"[ ]*>[a-z A-Z_0-9]*<[ ]*/[ ]*a[ ]*>", "");
 
-		int primeiroIndiceDeImagem = string.indexOf("<img src=\"");
-		//
-		// for (int i = primeiroIndiceDeImagem; i <= string.lastIndexOf(
-		// "<img src=\"", primeiroIndiceDeImagem); i++) {
-		// char c = string.charAt(i);
-		// if (string.contains("<img src=\"")) {
-		// links.add(string.substring(primeiroIndiceDeImagem + 10,
-		// string.indexOf("\" />", primeiroIndiceDeImagem)));
-		// }
-		// }
-		//
-		// System.out.println(primeiroIndiceDeImagem);
-		// System.out.println(string.lastIndexOf("<img src=\"",
-		// primeiroIndiceDeImagem));
 
-//		StringReader reader = new StringReader(string);
+		return string;
+	}
 
+	public List<String> pegaLinksDasImagens(String string) {
 		Scanner scanner = new Scanner(string);
 
 		while (scanner.hasNext()) {
-			if (scanner.findInLine("<img src=\"") != null) {
-				links.add(string.substring(primeiroIndiceDeImagem + 10,
-						string.indexOf("\" />", primeiroIndiceDeImagem)));
+
+			String token = scanner.next();
+
+			if (token.matches("src=\"http://[a-z A-Z_0-9./-]*\"(|/)>")) {
+				String link = (token.split("\"", 3)[1]);
+				links.add(link);
 			}
 		}
 
-		for (int i = 0; i < links.size(); i++) {
-			System.out.println(links.get(i));
-		}
-
-		return string;
+		scanner.close();
+		
+		return links;
 	}
 
 	public String parseiaCurso(Curso curso, int numeroDaSecao)
