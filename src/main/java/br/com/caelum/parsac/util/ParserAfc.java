@@ -92,9 +92,12 @@ public class ParserAfc {
 
 		texto += "\n" + parseiaTagsOnline(secao.getExplicacao());
 
+		texto += "\n\n[exercise]";
+		
 		for (Aberto aberto : secao.getAbertos()) {
-			texto += "\n" + parseiaTagsOnline(aberto.getEnunciado());
+			texto += "\n\t[question]\n" + parseiaTagsOnline(aberto.getEnunciado() + "\n[/question]");
 		}
+		texto += "\n[/exercise]";
 
 		return texto;
 	}
