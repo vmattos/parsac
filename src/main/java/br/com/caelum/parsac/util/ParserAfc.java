@@ -90,10 +90,11 @@ public class ParserAfc {
 		Secao secao = curso.getSecoes().get(numeroDaSecao);
 		String texto = "[chapter " + secao.getTitulo() + "]";
 
+		System.out.println(">>\tParseando tags da explicação...");
 		texto += "\n" + parseiaTagsOnline(secao.getExplicacao());
 
+		System.out.println(">>\tParseando exercicios...");
 		texto += "\n\n[exercise]";
-		
 		for (Aberto aberto : secao.getAbertos()) {
 			texto += "\n\t[question]\n" + parseiaTagsOnline(aberto.getEnunciado() + "\n[/question]");
 		}

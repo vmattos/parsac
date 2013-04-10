@@ -41,10 +41,10 @@ public class Main {
 
 			BufferedWriter br = new BufferedWriter(new FileWriter(arquivoAfc));
 
+			System.out.println("Parseando a secao " + secao.getNumero() + "...");
 			String cursoParseado = parser.parseiaCurso(arquivoDeserializado,
 					numeroDaSecao - 1);
 
-			System.out.println("Parseando o XML em AFC...");
 			br.write(cursoParseado);
 			br.close();
 			
