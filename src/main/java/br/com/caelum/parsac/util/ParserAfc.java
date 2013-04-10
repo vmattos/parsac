@@ -70,7 +70,7 @@ public class ParserAfc {
 
 			String token = scanner.next();
 
-			if (token.matches("src=\"http(s)*://[a-z A-Z_0-9./-]*\"(|/)>")) {
+			if (token.matches("src=\"http(s)*://[a-z A-Z_0-9./-]*\"((|/)>)*")) {
 				String link = (token.split("\"", 3)[1]);
 				links.add(link);
 			}
