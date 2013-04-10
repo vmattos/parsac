@@ -15,8 +15,8 @@ public class Secao {
 	private int numero;
 	private String titulo;
 	private String explicacao;
-	public List<Aberto> abertos = new ArrayList<Aberto>();
-	public List<MultiplaEscolha> multiplaEscolhas = new ArrayList<MultiplaEscolha>();
+	private List<Aberto> abertos = new ArrayList<Aberto>();
+	private List<MultiplaEscolha> multiplaEscolhas = new ArrayList<MultiplaEscolha>();
 
 	public Secao() {
 	}
