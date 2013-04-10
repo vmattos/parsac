@@ -1,5 +1,7 @@
 package br.com.caelum.parsac.util;
 
+import br.com.caelum.parsac.modelo.Aberto;
+import br.com.caelum.parsac.modelo.MultiplaEscolha;
 import br.com.caelum.parsac.modelo.Secao;
 
 import com.thoughtworks.xstream.converters.Converter;
@@ -32,6 +34,29 @@ public class SecaoConverter implements Converter {
 		reader.moveUp();
 		reader.moveDown();
 		secao.setExplicacao(reader.getValue());
+		reader.moveUp();
+		reader.moveDown();
+
+		while (reader.hasMoreChildren()) {
+			reader.moveDown();
+			
+			if (reader.getNodeName().equals("exercicio-aberto")) {
+				Aberto aberto = new Aberto();
+				reader.moveDown();
+				aberto.setEnunciado(reader.getValue());
+				reader.moveUp();
+				reader.moveDown();
+				aberto.setResposta(reader.getValue());
+				reader.moveUp();
+				
+				secao.getAbertos().add(aberto);
+			}
+			else {
+//				MultiplaEscolha
+			}
+			reader.moveUp();
+		}
+		
 		reader.moveUp();
 
 		return secao;
