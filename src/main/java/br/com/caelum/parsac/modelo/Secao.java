@@ -1,5 +1,6 @@
 package br.com.caelum.parsac.modelo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import br.com.caelum.parsac.util.SecaoConverter;
@@ -14,10 +15,10 @@ public class Secao {
 	private int numero;
 	private String titulo;
 	private String explicacao;
-	private List<Exercicio> exercicios;
+	public List<Aberto> abertos = new ArrayList<Aberto>();
+	public List<MultiplaEscolha> multiplaEscolhas = new ArrayList<MultiplaEscolha>();
 
 	public Secao() {
-
 	}
 
 	public Secao(int numero, String titulo, String explicacao,
@@ -26,7 +27,6 @@ public class Secao {
 		this.numero = numero;
 		this.titulo = titulo;
 		this.explicacao = explicacao;
-		this.exercicios = exercicios;
 	}
 
 	public int getNumero() {
@@ -41,10 +41,6 @@ public class Secao {
 		return explicacao;
 	}
 
-	public List<Exercicio> getExercicios() {
-		return exercicios;
-	}
-
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
@@ -57,12 +53,25 @@ public class Secao {
 		this.explicacao = explicacao;
 	}
 
-	public void setExercicios(List<Exercicio> exercicios) {
-		this.exercicios = exercicios;
+	public List<Aberto> getAbertos() {
+		return abertos;
+	}
+
+	public void setAbertos(List<Aberto> abertos) {
+		this.abertos = abertos;
+	}
+
+	public List<MultiplaEscolha> getMultiplaEscolhas() {
+		return multiplaEscolhas;
+	}
+
+	public void setMultiplaEscolhas(List<MultiplaEscolha> multiplaEscolhas) {
+		this.multiplaEscolhas = multiplaEscolhas;
 	}
 
 	public String toString() {
 		return "Seção " + this.numero + ": " + this.titulo + "\n"
-				+ this.explicacao + "\n\n" + this.exercicios;
+				+ this.explicacao + "\n\n" + this.abertos;
 	}
+
 }
