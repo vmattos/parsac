@@ -22,6 +22,9 @@ public class MultiplaEscolha extends Exercicio {
 		this.resposta = resposta;
 	}
 
+	public MultiplaEscolha() {
+	}
+
 	public List<Alternativa> getAlternativas() {
 		return alternativas;
 	}
