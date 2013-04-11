@@ -14,7 +14,7 @@ public class MultiplaEscolha extends Exercicio {
 	private List<Alternativa> alternativas = new ArrayList<Alternativa>();
 
 	@XStreamConverter(AlternativaCorretaConverter.class)
-	private Alternativa resposta;
+	private Alternativa resposta = new Alternativa();
 
 	public MultiplaEscolha(String enunciado, List<Alternativa> alternativas,
 			Alternativa resposta) {
