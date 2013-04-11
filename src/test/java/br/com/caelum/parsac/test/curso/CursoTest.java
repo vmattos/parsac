@@ -17,9 +17,9 @@ public class CursoTest {
 		Curso curso = new CursoFactory().constroiCurso();
 
 		Secao secao = curso.getSecoes().get(0);
-		Exercicio exercicioAberto = secao.getExercicios().get(0);
+		Exercicio exercicioAberto = secao.getExerciciosAbertos().get(0);
 		MultiplaEscolha exercicioMultiplaEscolha = (MultiplaEscolha) secao
-				.getExercicios().get(1);
+				.getExerciciosMultiplaEscolhas().get(1);
 
 		Assert.assertEquals("FJ-23", curso.getSigla());
 		Assert.assertEquals("VRaptor: web rápida e fácil com java",

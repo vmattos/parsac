@@ -24,9 +24,9 @@ public class DeserializacaoTest {
 
 		Curso arquivoDeserializado = (Curso) xstream.fromXML(xml);
 		Secao secao = arquivoDeserializado.getSecoes().get(0);
-		Exercicio exercicioAberto = secao.getExercicios().get(0);
+		Exercicio exercicioAberto = secao.getExerciciosAbertos().get(0);
 		MultiplaEscolha exercicioMultiplaEscolha = (MultiplaEscolha) secao
-				.getExercicios().get(1);
+				.getExerciciosMultiplaEscolhas().get(1);
 
 		Assert.assertEquals("FJ-23", arquivoDeserializado.getSigla());
 		Assert.assertEquals("VRaptor: web rápida e fácil com java",
