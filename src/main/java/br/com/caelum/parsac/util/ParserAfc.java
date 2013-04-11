@@ -64,7 +64,7 @@ public class ParserAfc {
 
 		string = string.replaceAll("<[ ]*img src=\"", "[img images/");
 		string = string.replaceAll("http(s)*://[a-z A-Z_0-9./-]*/", "");
-		string = string.replaceAll("\"(|/| | /)>", "]");
+		string = string.replaceAll("\"(|/| | /)>", " w=80 ]");
 
 		System.out.println(string);
 
@@ -130,7 +130,7 @@ public class ParserAfc {
 			respostas.add(exercicioMultiplaEscolha.getResposta());
 		}
 
-		texto += "\n[/exercise]\n[note]\nRespostas:\n\n";
+		texto += "\n[/exercise]\n[note]\n**Respostas:**\n\n";
 
 		for (int i = 0; i < respostas.size(); i++) {
 			texto += i + 1 + ") " + respostas.get(i) + "\n\n";
