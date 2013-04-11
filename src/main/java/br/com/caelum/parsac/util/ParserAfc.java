@@ -127,7 +127,7 @@ public class ParserAfc {
 
 			texto += "\n[/list]\n[/question]";
 
-			// respostas.add(exercicioMultiplaEscolha.getResposta());
+			respostas.add(exercicioMultiplaEscolha.getResposta());
 		}
 
 		texto += "\n[/exercise]\n[note]\nRespostas:\n\n";
