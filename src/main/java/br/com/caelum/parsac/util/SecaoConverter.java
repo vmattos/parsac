@@ -50,7 +50,7 @@ public class SecaoConverter implements Converter {
 				aberto.setResposta(reader.getValue());
 				reader.moveUp();
 
-				secao.getAbertos().add(aberto);
+				secao.getExerciciosAbertos().add(aberto);
 			} else if (reader.getNodeName().equals("exercicio-multiplaEscolha")) {
 				MultiplaEscolha exercicio = new MultiplaEscolha();
 
@@ -83,7 +83,7 @@ public class SecaoConverter implements Converter {
 					reader.moveUp();
 				}
 
-				secao.getMultiplaEscolhas().add(exercicio);
+				secao.getExerciciosMultiplaEscolhas().add(exercicio);
 			}
 			reader.moveUp();
 		}

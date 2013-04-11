@@ -15,8 +15,8 @@ public class Secao {
 	private int numero;
 	private String titulo;
 	private String explicacao;
-	private List<Aberto> abertos = new ArrayList<Aberto>();
-	private List<MultiplaEscolha> multiplaEscolhas = new ArrayList<MultiplaEscolha>();
+	private List<Aberto> exerciciosAbertos = new ArrayList<Aberto>();
+	private List<MultiplaEscolha> exerciciosMultiplaEscolhas = new ArrayList<MultiplaEscolha>();
 
 	public Secao() {
 	}
@@ -53,25 +53,25 @@ public class Secao {
 		this.explicacao = explicacao;
 	}
 
-	public List<Aberto> getAbertos() {
-		return abertos;
+	public List<Aberto> getExerciciosAbertos() {
+		return exerciciosAbertos;
 	}
 
-	public void setAbertos(List<Aberto> abertos) {
-		this.abertos = abertos;
+	public void setExerciciosAbertos(List<Aberto> exerciciosAbertos) {
+		this.exerciciosAbertos = exerciciosAbertos;
 	}
 
-	public List<MultiplaEscolha> getMultiplaEscolhas() {
-		return multiplaEscolhas;
+	public List<MultiplaEscolha> getExerciciosMultiplaEscolhas() {
+		return exerciciosMultiplaEscolhas;
 	}
 
-	public void setMultiplaEscolhas(List<MultiplaEscolha> multiplaEscolhas) {
-		this.multiplaEscolhas = multiplaEscolhas;
+	public void setExerciciosMultiplaEscolhas(List<MultiplaEscolha> exerciciosMultiplaEscolhas) {
+		this.exerciciosMultiplaEscolhas = exerciciosMultiplaEscolhas;
 	}
 
 	public String toString() {
 		return "Seção " + this.numero + ": " + this.titulo + "\n"
-				+ this.explicacao + "\n\n" + this.abertos;
+				+ this.explicacao + "\n\n" + this.exerciciosAbertos;
 	}
 
 }
