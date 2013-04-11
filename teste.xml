@@ -37,6 +37,7 @@
 			</explicacao>
 			<exercicios>
 				<exercicio-aberto>
+					<numero>1</numero>
 					<enunciado><![CDATA[
 						No Eclipse, busque pela aba <code>Servers</code>.
 						Selecione <code>New -> Server</code> e escolha a versão do Tomcat. Em seguida, 
@@ -64,6 +65,7 @@
 
 				</exercicio-aberto>
 				<exercicio-multiplaEscolha>
+					<numero>2</numero>
 					<enunciado>
 						No MVC a regra de negócio está em qual camada?
 					</enunciado>
