@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 
 import br.com.caelum.parsac.modelo.Aberto;
 import br.com.caelum.parsac.modelo.Curso;
+import br.com.caelum.parsac.modelo.MultiplaEscolha;
 import br.com.caelum.parsac.modelo.Secao;
 
 public class ParserAfc {
@@ -100,6 +101,14 @@ public class ParserAfc {
 		}
 		texto += "\n[/exercise]";
 
+		for (MultiplaEscolha exercicio : secao.getMultiplaEscolhas()) {
+			texto += "\n\n" + parseiaTagsOnline(exercicio.getEnunciado()) + "\n";
+			
+			for (int i=0; i<exercicio.getAlternativas().size(); i++){
+			texto += "\n" + "* " + parseiaTagsOnline(exercicio.getAlternativas().get(i).getTexto());
+			}
+		}
+		
 		return texto;
 	}
 
