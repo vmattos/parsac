@@ -1,6 +1,7 @@
 package br.com.caelum.parsac.util;
 
 import br.com.caelum.parsac.modelo.Aberto;
+import br.com.caelum.parsac.modelo.Alternativa;
 import br.com.caelum.parsac.modelo.MultiplaEscolha;
 import br.com.caelum.parsac.modelo.Secao;
 
@@ -39,7 +40,7 @@ public class SecaoConverter implements Converter {
 
 		while (reader.hasMoreChildren()) {
 			reader.moveDown();
-			
+
 			if (reader.getNodeName().equals("exercicio-aberto")) {
 				Aberto aberto = new Aberto();
 				reader.moveDown();
@@ -48,15 +49,44 @@ public class SecaoConverter implements Converter {
 				reader.moveDown();
 				aberto.setResposta(reader.getValue());
 				reader.moveUp();
-				
+
 				secao.getAbertos().add(aberto);
-			}
-			else {
-//				MultiplaEscolha
+			} else if (reader.getNodeName().equals("exercicio-multiplaEscolha")) {
+				MultiplaEscolha exercicio = new MultiplaEscolha();
+
+				reader.moveDown();
+				exercicio.setEnunciado(reader.getValue());
+
+				reader.moveUp();
+				reader.moveDown();
+				if (reader.getNodeName().equals("alternativas")) {
+
+					while (reader.hasMoreChildren()) {
+						reader.moveDown();
+						reader.moveDown();
+						exercicio.getAlternativas().add(
+								new Alternativa(reader.getValue()));
+						reader.moveUp();
+						reader.moveUp();
+
+					}
+					
+					 reader.moveUp();
+				}
+
+				else if (reader.getNodeName().equals("resposta")) {
+					reader.moveDown();
+					reader.moveDown();
+					exercicio.setResposta(reader.getValue());
+					reader.moveUp();
+					reader.moveUp();
+				}
+
+				secao.getMultiplaEscolhas().add(exercicio);
 			}
 			reader.moveUp();
 		}
-		
+
 		reader.moveUp();
 
 		return secao;
