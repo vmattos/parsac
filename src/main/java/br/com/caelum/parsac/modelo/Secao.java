@@ -65,7 +65,8 @@ public class Secao {
 		return exerciciosMultiplaEscolhas;
 	}
 
-	public void setExerciciosMultiplaEscolhas(List<MultiplaEscolha> exerciciosMultiplaEscolhas) {
+	public void setExerciciosMultiplaEscolhas(
+			List<MultiplaEscolha> exerciciosMultiplaEscolhas) {
 		this.exerciciosMultiplaEscolhas = exerciciosMultiplaEscolhas;
 	}
 

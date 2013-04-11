@@ -13,7 +13,7 @@ public class Exercicio {
 
 	@XStreamOmitField
 	private String resposta;
-	
+
 	public Exercicio() {
 	}
 

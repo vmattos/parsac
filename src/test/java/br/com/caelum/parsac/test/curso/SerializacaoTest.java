@@ -32,7 +32,7 @@ public class SerializacaoTest {
 		while (sc.hasNext()) {
 			xml += sc.nextLine() + "\n";
 		}
-		
+
 		sc.close();
 
 		xml = xml.replaceAll("\t", "");

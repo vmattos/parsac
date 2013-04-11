@@ -9,7 +9,7 @@ public class Alternativa {
 
 	public Alternativa() {
 	}
-	
+
 	public Alternativa(String texto) {
 		this.texto = texto;
 	}

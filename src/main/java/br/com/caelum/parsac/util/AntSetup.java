@@ -13,7 +13,7 @@ public class AntSetup {
 	private File buildFile = new File("build.xml");
 	private Project p = new Project();
 	private List<String> listaDeImagens = new ArrayList<String>();
-	
+
 	public String getNomeDoDiretorio() {
 		return nomeDoDiretorio;
 	}

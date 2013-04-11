@@ -37,16 +37,14 @@ public class MultiplaEscolha extends Exercicio {
 	public void setEnunciado(String enunciado) {
 		this.enunciado = enunciado;
 	}
-	
+
 	public void setResposta(String resposta) {
 		this.resposta.setTexto(resposta);
 	}
-	
+
 	public String toString() {
 		return this.enunciado + "\n\n" + this.alternativas + "\nResposta: "
 				+ this.resposta;
 	}
-
-	
 
 }
