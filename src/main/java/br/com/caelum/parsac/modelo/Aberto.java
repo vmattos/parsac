@@ -19,6 +19,14 @@ public class Aberto extends Exercicio {
 		this.resposta = resposta;
 	}
 
+	public void setEnunciado(String enunciado) {
+		this.enunciado = enunciado;
+	}
+	
+	public String getEnunciado() {
+		return this.enunciado;
+	}
+	
 	public String getResposta() {
 		return resposta;
 	}
@@ -27,7 +35,4 @@ public class Aberto extends Exercicio {
 		return this.enunciado + "\n\n" + this.resposta;
 	}
 
-	public void setEnunciado(String enunciado) {
-		this.enunciado = enunciado;
-	}
 }
