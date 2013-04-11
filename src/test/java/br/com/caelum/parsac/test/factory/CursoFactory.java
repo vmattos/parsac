@@ -1,4 +1,4 @@
-package br.com.caelum.parsac.factory;
+package br.com.caelum.parsac.test.factory;
 
 import java.util.ArrayList;
 import java.util.List;

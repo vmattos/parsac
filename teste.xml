@@ -37,7 +37,7 @@
 			</explicacao>
 			<exercicios>
 				<exercicio-aberto>
-					<enunciado>
+					<enunciado><![CDATA[
 						No Eclipse, busque pela aba <code>Servers</code>.
 						Selecione <code>New -> Server</code> e escolha a versão do Tomcat. Em seguida, 
 						selecione a pasta de instalação do Tomcat, e clique em <code>Next</code>.
@@ -56,7 +56,7 @@
 						Digitando a URL <code>localhost:8080/vraptor-produtos</code>, qual a mensagem que 
 						aparece?
 
-					</enunciado>
+					]]></enunciado>
 					
 					<resposta>
 						Três tigres tristes.

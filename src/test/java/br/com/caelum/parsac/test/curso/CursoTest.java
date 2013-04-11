@@ -3,11 +3,11 @@ package br.com.caelum.parsac.test.curso;
 import org.junit.Assert;
 import org.junit.Test;
 
-import br.com.caelum.parsac.factory.CursoFactory;
 import br.com.caelum.parsac.modelo.Curso;
 import br.com.caelum.parsac.modelo.Exercicio;
 import br.com.caelum.parsac.modelo.MultiplaEscolha;
 import br.com.caelum.parsac.modelo.Secao;
+import br.com.caelum.parsac.test.factory.CursoFactory;
 
 public class CursoTest {
 
