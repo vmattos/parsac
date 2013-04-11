@@ -7,6 +7,9 @@ public class Alternativa {
 
 	private String texto;
 
+	public Alternativa() {
+	}
+	
 	public Alternativa(String texto) {
 		this.texto = texto;
 	}
