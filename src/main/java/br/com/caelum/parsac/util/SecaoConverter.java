@@ -72,9 +72,10 @@ public class SecaoConverter implements Converter {
 					}
 					
 					 reader.moveUp();
+					 reader.moveDown();
 				}
 
-				else if (reader.getNodeName().equals("resposta")) {
+				if (reader.getNodeName().equals("resposta")) {
 					reader.moveDown();
 					reader.moveDown();
 					exercicio.setResposta(reader.getValue());
