@@ -19,7 +19,16 @@ public class SecaoConverter implements Converter {
 
 	public void marshal(Object value, HierarchicalStreamWriter writer,
 			MarshallingContext context) {
-
+		Secao secao = (Secao) value;
+		writer.startNode("numero");
+		writer.setValue(String.valueOf(secao.getNumero()));
+		writer.endNode();
+		writer.startNode("titulo");
+		writer.setValue(String.valueOf(secao.getTitulo()));
+		writer.endNode();
+		writer.startNode("explicacao");
+		writer.setValue(String.valueOf(secao.getExplicacao()));
+		writer.endNode();
 	}
 
 	public Object unmarshal(HierarchicalStreamReader reader,
