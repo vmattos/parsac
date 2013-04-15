@@ -6,7 +6,6 @@ import java.util.List;
 import br.com.caelum.parsac.modelo.Aberto;
 import br.com.caelum.parsac.modelo.Alternativa;
 import br.com.caelum.parsac.modelo.Curso;
-import br.com.caelum.parsac.modelo.Cursos;
 import br.com.caelum.parsac.modelo.Exercicio;
 import br.com.caelum.parsac.modelo.MultiplaEscolha;
 import br.com.caelum.parsac.modelo.Secao;
