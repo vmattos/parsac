@@ -17,6 +17,10 @@ public class Curso {
 		this.secoes = secoes;
 	}
 
+	public Curso() {
+
+	}
+
 	public String getSigla() {
 		return sigla;
 	}
@@ -27,6 +31,18 @@ public class Curso {
 
 	public List<Secao> getSecoes() {
 		return secoes;
+	}
+
+	public void setSigla(String sigla) {
+		this.sigla = sigla;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	public void setSecoes(List<Secao> secoes) {
+		this.secoes = secoes;
 	}
 
 	@Override
