@@ -41,8 +41,8 @@ public class ParserAfc {
 		string = string.replaceAll("<[ ]*(b|strong|u)[ ]*>", "**");
 		string = string.replaceAll("<[ ]*/[ ]*(b|strong|u)[ ]*>", "**");
 
-		string = string.replaceAll("<[ ]*em[ ]*>", "::");
-		string = string.replaceAll("<[ ]*/[ ]*em[ ]*>", "::");
+		string = string.replaceAll("<[ ]*(em|i)[ ]*>", "::");
+		string = string.replaceAll("<[ ]*/[ ]*(em|i)[ ]*>", "::");
 
 		string = string.replaceAll("<[ ]*code[ ]*>", "%%");
 		string = string.replaceAll("<[ ]*/[ ]*code[ ]*>", "%%");
@@ -61,10 +61,12 @@ public class ParserAfc {
 
 		string = string.replaceAll("<[ ]*a[ ]*href[ ]*=[ ]*\"", "");
 		string = string.replaceAll("\"[ ]*>[a-z A-Z_0-9]*<[ ]*/[ ]*a[ ]*>", "");
+		string = string.replaceAll("<[ ]*/[ ]*a[ ]*>", "");
 
-		string = string.replaceAll("<[ ]*img src=\"", "[img images/");
-		string = string.replaceAll("http(s)*://[a-z A-Z_0-9./-]*/", "");
-		string = string.replaceAll("\"(|/| | /)>", " w=80 ]");
+		string = string.replaceAll("<[ ]*img ", "[img images/");
+		string = string.replaceAll("src=\"http(s)*://[a-z A-Z_0-9./-]*/", "");
+		string = string.replaceAll("\"(|/| | /)>", " w=70]");
+		string = string.replaceAll("width=\"[0-9]*%\"", "");
 
 		System.out.println(string);
 
