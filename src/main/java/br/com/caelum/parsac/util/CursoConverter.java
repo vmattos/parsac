@@ -15,7 +15,7 @@ import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
 public class CursoConverter implements Converter {
 
 	public boolean canConvert(Class clazz) {
-		return clazz.equals(Secao.class);
+		return clazz.equals(Curso.class);
 	}
 
 	public void marshal(Object value, HierarchicalStreamWriter writer,
@@ -42,7 +42,6 @@ public class CursoConverter implements Converter {
 			Secao secao = new Secao();
 
 			reader.moveDown();
-			System.out.println(reader.getNodeName());
 			secao.setNumero(Integer.parseInt(reader.getValue()));
 			reader.moveUp();
 			reader.moveDown();
@@ -55,8 +54,11 @@ public class CursoConverter implements Converter {
 
 			while (reader.hasMoreChildren()) {
 
+				reader.moveDown();
 				if (reader.getNodeName().equals("exercicio-aberto")) {
+					
 					Aberto aberto = new Aberto();
+					
 					reader.moveDown();
 					aberto.setEnunciado(reader.getValue());
 					reader.moveUp();
@@ -65,8 +67,10 @@ public class CursoConverter implements Converter {
 					reader.moveUp();
 
 					secao.getExerciciosAbertos().add(aberto);
+					
 				} else if (reader.getNodeName().equals(
 						"exercicio-multiplaEscolha")) {
+					
 					MultiplaEscolha exercicio = new MultiplaEscolha();
 
 					reader.moveDown();
@@ -100,10 +104,10 @@ public class CursoConverter implements Converter {
 
 					secao.getExerciciosMultiplaEscolhas().add(exercicio);
 				}
-				
+
 				reader.moveUp();
 			}
-			
+
 			curso.getSecoes().add(secao);
 		}
 
@@ -112,5 +116,4 @@ public class CursoConverter implements Converter {
 		return curso;
 
 	}
-
 }

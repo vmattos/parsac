@@ -3,10 +3,7 @@ package br.com.caelum.parsac.modelo;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.caelum.parsac.util.CursoConverter;
-
 import com.thoughtworks.xstream.annotations.XStreamAlias;
-import com.thoughtworks.xstream.annotations.XStreamConverter;
 
 @XStreamAlias("secao")
 public class Secao {
