@@ -6,10 +6,10 @@ import java.util.Scanner;
 
 import org.junit.Test;
 
-import br.com.caelum.parsac.builder.XStreamBuilder;
 import br.com.caelum.parsac.modelo.Curso;
+import br.com.caelum.parsac.parser.ParserAfc;
 import br.com.caelum.parsac.test.factory.CursoFactory;
-import br.com.caelum.parsac.util.ParserAfc;
+import br.com.caelum.parsac.xstream.XStreamBuilder;
 
 import com.thoughtworks.xstream.XStream;
 

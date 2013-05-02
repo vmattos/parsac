@@ -4,13 +4,14 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
-import br.com.caelum.parsac.builder.XStreamBuilder;
+import br.com.caelum.parsac.ant.AntSetup;
 import br.com.caelum.parsac.modelo.Curso;
+import br.com.caelum.parsac.modelo.Exercicio;
 import br.com.caelum.parsac.modelo.Secao;
-import br.com.caelum.parsac.util.AntSetup;
-import br.com.caelum.parsac.util.ParserAfc;
+import br.com.caelum.parsac.parser.ParserAfc;
 
 import com.thoughtworks.xstream.XStream;
 
@@ -18,10 +19,13 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 
-		System.out.println("PARSAC");
+		XStream xstream = new XStream();
+		xstream.processAnnotations(Curso.class);
+		xstream.processAnnotations(Exercicio.class);
 
-		XStream xstream = new XStreamBuilder().processaAnotacoesXStream();
-		File xml = new File("teste.xml");
+		List<String> listaDeImagens = new ArrayList<String>();
+
+		File xml = new File("final.xml");
 		ParserAfc parser = new ParserAfc();
 		Curso arquivoDeserializado = (Curso) xstream.fromXML(xml);
 
@@ -51,14 +55,10 @@ public class Main {
 			br.close();
 
 			System.out.println("Baixando as imagens...");
-			List<String> listaDeImagens = parser.pegaLinksDasImagens(secao
-					.getExplicacao());
-			ant.setListaDeImagens(listaDeImagens);
-			ant.baixaImagens();
-
+			listaDeImagens = parser.pegaLinksDasImagens(secao.getExplicacao());
 		}
 
-		System.out.println("Terminado.");
-
+		ant.setListaDeImagens(listaDeImagens);
+		ant.baixaImagens();
 	}
 }

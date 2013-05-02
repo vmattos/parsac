@@ -1,42 +1,45 @@
 package br.com.caelum.parsac.modelo;
 
-import com.thoughtworks.xstream.annotations.XStreamAlias;
-import com.thoughtworks.xstream.annotations.XStreamOmitField;
+import java.util.ArrayList;
+import java.util.List;
 
-@XStreamAlias("exercicio")
 public class Exercicio {
 
-	protected String enunciado;
-
-	@XStreamOmitField
-	protected Alternativa alternativaCorreta;
-
-	@XStreamOmitField
+	private int numero;
+	private String enunciado;
 	private String resposta;
+	private List<Alternativa> alternativas = new ArrayList<Alternativa>();
 
-	public Exercicio() {
+	public List<Alternativa> getAlternativas() {
+		return alternativas;
 	}
 
-	public Exercicio(String enunciado, Alternativa resposta) {
-		this.enunciado = enunciado;
-		this.alternativaCorreta = resposta;
+	public void setAlternativas(List<Alternativa> alternativas) {
+		this.alternativas = alternativas;
 	}
 
-	public Exercicio(String enunciado, String resposta) {
-		this.enunciado = enunciado;
-		this.resposta = resposta;
+	public int getNumero() {
+		return numero;
+	}
+
+	public void setNumero(int numero) {
+		this.numero = numero;
 	}
 
 	public String getEnunciado() {
 		return enunciado;
 	}
 
+	public void setEnunciado(String enunciado) {
+		this.enunciado = enunciado;
+	}
+
 	public String getResposta() {
-		if (this instanceof Aberto) {
-			return resposta;
-		} else {
-			return alternativaCorreta.getTexto();
-		}
+		return resposta;
+	}
+
+	public void setResposta(String resposta) {
+		this.resposta = resposta;
 	}
 
 }

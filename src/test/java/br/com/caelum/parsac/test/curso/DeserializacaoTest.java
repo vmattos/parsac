@@ -5,11 +5,11 @@ import java.io.File;
 import org.junit.Assert;
 import org.junit.Test;
 
-import br.com.caelum.parsac.builder.XStreamBuilder;
 import br.com.caelum.parsac.modelo.Curso;
 import br.com.caelum.parsac.modelo.Exercicio;
 import br.com.caelum.parsac.modelo.MultiplaEscolha;
 import br.com.caelum.parsac.modelo.Secao;
+import br.com.caelum.parsac.xstream.XStreamBuilder;
 
 import com.thoughtworks.xstream.XStream;
 

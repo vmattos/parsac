@@ -1,10 +1,10 @@
-package br.com.caelum.parsac.builder;
+package br.com.caelum.parsac.xstream;
 
-import br.com.caelum.parsac.modelo.Aberto;
 import br.com.caelum.parsac.modelo.Alternativa;
 import br.com.caelum.parsac.modelo.Curso;
 import br.com.caelum.parsac.modelo.Exercicio;
-import br.com.caelum.parsac.modelo.MultiplaEscolha;
+import br.com.caelum.parsac.modelo.ExercicioAberto;
+import br.com.caelum.parsac.modelo.ExercicioMultiplaEscolha;
 
 import com.thoughtworks.xstream.XStream;
 
@@ -16,8 +16,8 @@ public class XStreamBuilder {
 		xstream.processAnnotations(Curso.class);
 		xstream.processAnnotations(Exercicio.class);
 		xstream.processAnnotations(Alternativa.class);
-		xstream.processAnnotations(Aberto.class);
-		xstream.processAnnotations(MultiplaEscolha.class);
+		xstream.processAnnotations(ExercicioAberto.class);
+		xstream.processAnnotations(ExercicioMultiplaEscolha.class);
 		xstream.setMode(XStream.NO_REFERENCES);
 
 		return xstream;

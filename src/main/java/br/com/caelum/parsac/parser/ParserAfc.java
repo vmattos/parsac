@@ -1,4 +1,4 @@
-package br.com.caelum.parsac.util;
+package br.com.caelum.parsac.parser;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -6,9 +6,10 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
-import br.com.caelum.parsac.modelo.Aberto;
+import br.com.caelum.parsac.modelo.Alternativa;
 import br.com.caelum.parsac.modelo.Curso;
-import br.com.caelum.parsac.modelo.MultiplaEscolha;
+import br.com.caelum.parsac.modelo.Exercicio;
+import br.com.caelum.parsac.modelo.ExercicioMultiplaEscolha;
 import br.com.caelum.parsac.modelo.Secao;
 
 public class ParserAfc {
@@ -38,6 +39,8 @@ public class ParserAfc {
 					+ ")" + Pattern.quote("]"), "[/code]");
 		}
 
+		string = string.replaceAll("class=\"linked-list\"", "");
+
 		string = string.replaceAll("<[ ]*(b|strong|u)[ ]*>", "**");
 		string = string.replaceAll("<[ ]*/[ ]*(b|strong|u)[ ]*>", "**");
 
@@ -65,8 +68,9 @@ public class ParserAfc {
 
 		string = string.replaceAll("<[ ]*img ", "[img images/");
 		string = string.replaceAll("src=\"http(s)*://[a-z A-Z_0-9./-]*/", "");
-		string = string.replaceAll("\"(|/| | /)>", " w=70]");
+		// string = string.replaceAll("\"(|/| | /)>", " w=50]");
 		string = string.replaceAll("width=\"[0-9]*%\"", "");
+		string = string.replaceAll("<[ ]*img ", "");
 
 		System.out.println(string);
 
@@ -105,31 +109,22 @@ public class ParserAfc {
 
 		texto += "\n\n[section Exercicios]\n\n[exercise]";
 
-		for (Aberto exercicioAberto : secao.getExerciciosAbertos()) {
-			texto += "\n\t[question]\n"
-					+ parseiaTagsOnline(exercicioAberto.getEnunciado()
-							+ "\n[/question]");
-			respostas.add(exercicioAberto.getResposta());
-		}
+		for (Exercicio exercicio : secao.getExercicios().getExercicios()) {
+			texto += "\n\t[question]";
 
-		for (MultiplaEscolha exercicioMultiplaEscolha : secao
-				.getExerciciosMultiplaEscolhas()) {
-			texto += "\n\n[question]\n"
-					+ parseiaTagsOnline(exercicioMultiplaEscolha.getEnunciado())
-					+ "\n";
+			texto += parseiaTagsOnline(exercicio.getEnunciado());
+			if (exercicio instanceof ExercicioMultiplaEscolha) {
+				texto += "[list]";
 
-			texto += "[list]";
-			for (int i = 0; i < exercicioMultiplaEscolha.getAlternativas()
-					.size(); i++) {
-				texto += "\n"
-						+ "* "
-						+ parseiaTagsOnline(exercicioMultiplaEscolha
-								.getAlternativas().get(i).getTexto());
+				for (Alternativa alternativa : exercicio.getAlternativas()) {
+					texto += "\n* " + parseiaTagsOnline(alternativa.getTexto());
+				}
+
+				texto += "[/list]";
 			}
 
-			texto += "\n[/list]\n[/question]";
-
-			respostas.add(exercicioMultiplaEscolha.getResposta());
+			texto += "\n[/question]";
+			respostas.add(parseiaTagsOnline(exercicio.getResposta()));
 		}
 
 		texto += "\n[/exercise]\n[note]\n**Respostas:**\n\n";
