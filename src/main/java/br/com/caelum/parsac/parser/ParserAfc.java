@@ -52,6 +52,9 @@ public class ParserAfc {
 
 		string = string.replaceAll("<[ ]*h1[ ]*>", "[section ");
 		string = string.replaceAll("<[ ]*/[ ]*h1[ ]*>", "]");
+		
+		string = string.replaceAll("<[ ]*h[2-9]*[ ]*>", "[title ");
+		string = string.replaceAll("<[ ]*/[ ]*h[2-9]*[ ]*>", "]");
 
 		string = string.replaceAll("<[ ]*(ul|ol)[ ]*>", "[list]");
 		string = string.replaceAll("<[ ]*/[ ]*(ul|ol)[ ]*>", "[/list]");
