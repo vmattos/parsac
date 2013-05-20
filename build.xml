@@ -45,7 +45,7 @@
 	</target>
 	
 	<target name="atualiza-dependencias">
-		<ivy:retrieve pattern="${lib}/[artifact]-[revision].[ext]"/>
+		<ivy:retrieve/>
 	</target>
 	
 	<target name="clean-dependencias">
