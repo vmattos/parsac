@@ -52,7 +52,7 @@ public class ParserAfc {
 
 		string = string.replaceAll("<[ ]*h1[ ]*>", "[section ");
 		string = string.replaceAll("<[ ]*/[ ]*h1[ ]*>", "]");
-		
+
 		string = string.replaceAll("<[ ]*h[0-9]*[ ]*>", "[title ");
 		string = string.replaceAll("<[ ]*/[ ]*h[0-9]*[ ]*>", "]");
 
@@ -74,7 +74,6 @@ public class ParserAfc {
 		string = string.replaceAll("\"(|/| | /)>", " ]");
 		string = string.replaceAll("width=\"[0-9]*%\"", "");
 		string = string.replaceAll("<[ ]*img ", "");
-
 
 		return string;
 
@@ -136,6 +135,8 @@ public class ParserAfc {
 		}
 
 		texto += "[/note]";
+		
+		respostas.clear();
 
 		return texto;
 	}
