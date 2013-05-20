@@ -13,6 +13,7 @@ import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
 
 public class ExerciciosConverter implements Converter {
 
+	@SuppressWarnings("rawtypes")
 	public boolean canConvert(Class clazz) {
 		return clazz.equals(Exercicios.class);
 	}
