@@ -44,8 +44,8 @@
 		<mkdir dir="${bin}" />
 	</target>
 	
-	<target name="atualiza-dependencias" depends="clean-dependencias">
-		<ivy:retrieve />
+	<target name="atualiza-dependencias">
+		<ivy:retrieve pattern="${lib}/[artifact]-[revision].[ext]"/>
 	</target>
 	
 	<target name="clean-dependencias">
