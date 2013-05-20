@@ -5,9 +5,6 @@
 <title>VRaptor Blank Project</title>
 </head>
 <body>
-	<form action="./parseia" method="get">
-		<input name="path" type="text" />
-		<input type="submit"/>
-	</form>
+	${string}
 </body>
 </html>
