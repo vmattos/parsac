@@ -135,7 +135,7 @@ public class ParserAfc {
 		}
 
 		texto += "[/note]";
-		
+
 		respostas.clear();
 
 		return texto;

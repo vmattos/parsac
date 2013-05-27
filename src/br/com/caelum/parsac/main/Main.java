@@ -43,7 +43,7 @@ public class Main {
 
 			String nomeAfc = secao.getTitulo().replaceAll(" ", "-")
 					.toLowerCase();
-			
+
 			File arquivoAfc = new File(arquivoDeserializado.getSigla() + "/"
 					+ numeroDaSecao + "-" + nomeAfc + ".afc");
 
@@ -63,7 +63,7 @@ public class Main {
 		System.out.println("Baixando as imagens...");
 		ant.setListaDeImagens(listaDeImagens);
 		ant.baixaImagens();
-		
+
 		System.out.println("TERMINADO");
 	}
 }
