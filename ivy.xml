@@ -7,6 +7,7 @@
 		<dependency org="com.thoughtworks.xstream" name="xstream" rev="1.4.4"/>		
 		<dependency org="junit" name="junit" rev="4.11"/>
 		<dependency org="org.apache.ant" name="ant" rev="1.9.0"/>
+		<dependency org="jstl" name="jstl" rev="1.2"/>
 		<dependency org="br.com.caelum" name="vraptor" rev="3.5.1"/>
 	</dependencies>
 
