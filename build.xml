@@ -38,16 +38,16 @@
 			<classpath refid="classpath" />
 		</javac>
 	</target>
-	
+
 	<target name="clean-bin" depends="atualiza-dependencias">
 		<delete dir="${bin}" />
 		<mkdir dir="${bin}" />
 	</target>
-	
+
 	<target name="atualiza-dependencias">
-		<ivy:retrieve/>
+		<ivy:retrieve />
 	</target>
-	
+
 	<target name="clean-dependencias">
 		<delete dir="${lib}" />
 		<mkdir dir="${lib}" />
@@ -64,8 +64,24 @@
 		<mkdir dir="${curso.dir}/images" />
 	</target>
 
-	<target name="baixa-imagens"> 
+	<target name="baixa-imagens">
 		<get src="${img.url}" dest="${curso.dir}/images" usetimestamp="false" />
+	</target>
+
+
+	<!-- Corrigir diretorios!!!!!!!! -->
+	<target name="jetty.run" description="--> run jetty server" depends="compile">
+		<path id="jetty.path.id">
+			<fileset dir="WebContent/WEB-INF/lib" />
+		</path>
+		<taskdef classpathref="jetty.path.id" resource="tasks.properties" loaderref="jetty.loader" />
+		<jetty tempDirectory="${output.dir}/jetty-temp">
+			<webApp name="${project.name}" warfile="./" contextpath="/" scanIntervalSeconds="3">
+				<scanTargets dir="${bin}">
+					<include name="**/*" />
+				</scanTargets>
+			</webApp>
+		</jetty>
 	</target>
 
 </project>

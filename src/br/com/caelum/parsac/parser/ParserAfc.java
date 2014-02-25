@@ -72,7 +72,6 @@ public class ParserAfc {
 		string = string.replaceAll("<[ ]*img ", "[img images/");
 		string = string.replaceAll("src=\"http(s)*://[a-z A-Z_0-9./-]*/", "");
 		string = string.replaceAll("\"(|/| | /)>", " ]");
-		string = string.replaceAll("width=\"[0-9]*%\"", "");
 		string = string.replaceAll("<[ ]*img ", "");
 
 		return string;
