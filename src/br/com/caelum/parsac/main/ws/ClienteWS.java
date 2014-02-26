@@ -17,8 +17,10 @@ public class ClienteWS {
 		
 		String xml = "";
 		while(scanner.hasNext()) {
-			xml = xml + scanner.next();
+			xml = xml + " " + scanner.next();
 		}
+		
+		System.out.println(xml);
 		
 		return xml;
 	}
