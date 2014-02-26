@@ -1,27 +1,39 @@
 package br.com.caelum.parsac.main.ws;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Scanner;
 
 public class ClienteWS {
 
 	public String consomeWebService(String webService) throws IOException {
+
 		URL url = new URL(webService);
 		HttpURLConnection con = (HttpURLConnection) url.openConnection();
-		InputStream stream = con.getInputStream();
-		Scanner scanner = new Scanner(stream);
+		StringBuilder builder = getBuilder(con);
 		
-		String xml = "";
-		while(scanner.hasNext()) {
-			xml = xml + " " + scanner.next();
+		System.out.println(builder.toString());
+
+		return builder.toString();
+	}
+	
+	private StringBuilder getBuilder(HttpURLConnection connection)
+			throws IOException {
+
+		InputStream content = connection.getInputStream();
+		InputStreamReader reader = new InputStreamReader(content);
+		BufferedReader bufferedReader = new BufferedReader(reader);
+		String s = bufferedReader.readLine();
+		StringBuilder builder = new StringBuilder();
+		while (s != null) {
+			builder.append(s).append("\n");
+			s = bufferedReader.readLine();
 		}
-		
-		System.out.println(xml);
-		
-		return xml;
+		bufferedReader.close();
+
+		return builder;
 	}
 }

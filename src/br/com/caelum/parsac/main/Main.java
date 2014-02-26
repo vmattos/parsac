@@ -4,17 +4,12 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 import br.com.caelum.parsac.ant.AntSetup;
 import br.com.caelum.parsac.main.ws.ClienteWS;
 import br.com.caelum.parsac.modelo.Curso;
-import br.com.caelum.parsac.modelo.Exercicio;
 import br.com.caelum.parsac.modelo.Secao;
 import br.com.caelum.parsac.parser.ParserAfc;
 import br.com.caelum.parsac.xstream.XStreamBuilder;

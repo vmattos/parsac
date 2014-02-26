@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 import br.com.caelum.parsac.modelo.Alternativa;
 import br.com.caelum.parsac.modelo.Curso;
@@ -32,17 +31,19 @@ public class ParserAfc {
 
 	public String parseiaTagsOnline(String string) throws IOException {
 
-		for (String linguagem : linguagens) {
-			string = string.replaceAll(Pattern.quote("[") + "(" + linguagem
-					+ ")" + Pattern.quote("]"), "[code " + linguagem + "]");
-			string = string.replaceAll(Pattern.quote("[/") + "(" + linguagem
-					+ ")" + Pattern.quote("]"), "[/code]");
-		}
+		// for (String linguagem : linguagens) {
+		// string = string.replaceAll(Pattern.quote("[") + "(" + linguagem
+		// + ")" + Pattern.quote("]"), "[code " + linguagem + "]");
+		// string = string.replaceAll(Pattern.quote("[/") + "(" + linguagem
+		// + ")" + Pattern.quote("]"), "[/code]");
+		// }
 
 		string = string.replaceAll("class=\"linked-list\"", "");
 
 		string = string.replaceAll("<[ ]*(b|strong|u)[ ]*>", "**");
 		string = string.replaceAll("<[ ]*/[ ]*(b|strong|u)[ ]*>", "**");
+
+		string = parseiaTagCode(string);
 
 		string = string.replaceAll("<[ ]*(em|i)[ ]*>", "::");
 		string = string.replaceAll("<[ ]*/[ ]*(em|i)[ ]*>", "::");
@@ -59,7 +60,7 @@ public class ParserAfc {
 		string = string.replaceAll("<[ ]*(ul|ol)[ ]*>", "[list]");
 		string = string.replaceAll("<[ ]*/[ ]*(ul|ol)[ ]*>", "[/list]");
 
-		string = string.replaceAll("<[ ]*li[ ]*>", "*");
+		string = string.replaceAll("<[ ]*li[ ]*>", "* ");
 		string = string.replaceAll("<[ ]*/[ ]*li[ ]*>", "");
 
 		string = string.replaceAll("<[ ]*hr[ ]*>", "");
@@ -76,6 +77,16 @@ public class ParserAfc {
 
 		return string;
 
+	}
+
+	private String parseiaTagCode(String string) {
+		
+		for (int i = 0; i < string.length(); i++) {
+			string = string.replaceFirst("```", "[code]");
+			string = string.replaceFirst("```", "[/code]");
+		}
+		
+		return string;
 	}
 
 	public List<String> pegaLinksDasImagens(String string) {
