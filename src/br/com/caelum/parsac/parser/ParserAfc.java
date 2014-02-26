@@ -44,6 +44,7 @@ public class ParserAfc {
 		string = string.replaceAll("<[ ]*/[ ]*(b|strong|u)[ ]*>", "**");
 
 		string = parseiaTagCode(string);
+		string = string.replaceAll("`", "%%");
 
 		string = string.replaceAll("<[ ]*(em|i)[ ]*>", "::");
 		string = string.replaceAll("<[ ]*/[ ]*(em|i)[ ]*>", "::");
@@ -51,11 +52,11 @@ public class ParserAfc {
 		string = string.replaceAll("<[ ]*code[ ]*>", "%%");
 		string = string.replaceAll("<[ ]*/[ ]*code[ ]*>", "%%");
 
-		string = string.replaceAll("<[ ]*h1[ ]*>", "[section ");
-		string = string.replaceAll("<[ ]*/[ ]*h1[ ]*>", "]");
+		// string = string.replaceAll("<[ ]*h1[ ]*>", "[section ");
+		// string = string.replaceAll("<[ ]*/[ ]*h1[ ]*>", "]");
 
-		string = string.replaceAll("<[ ]*h[0-9]*[ ]*>", "[title ");
-		string = string.replaceAll("<[ ]*/[ ]*h[0-9]*[ ]*>", "]");
+		// string = string.replaceAll("<[ ]*h[0-9]*[ ]*>", "[title ");
+		// string = string.replaceAll("<[ ]*/[ ]*h[0-9]*[ ]*>", "]");
 
 		string = string.replaceAll("<[ ]*(ul|ol)[ ]*>", "[list]");
 		string = string.replaceAll("<[ ]*/[ ]*(ul|ol)[ ]*>", "[/list]");
@@ -66,27 +67,30 @@ public class ParserAfc {
 		string = string.replaceAll("<[ ]*hr[ ]*>", "");
 		string = string.replaceAll("<[ ]*hr[ ]*/[ ]*>", "");
 
-		string = string.replaceAll("<[ ]*a[ ]*href[ ]*=[ ]*\"", "");
-		string = string.replaceAll("\"[ ]*>[a-z A-Z_0-9]*<[ ]*/[ ]*a[ ]*>", "");
+		string = string
+				.replaceAll(
+						"<[ ]*a[ ]*href[ ]*=[ ]*\"http(s)*://[a-z A-Z_0-9./-]*\"[ ]*(target=\"_blank\")*>",
+						"");
 		string = string.replaceAll("<[ ]*/[ ]*a[ ]*>", "");
 
 		string = string.replaceAll("<[ ]*img ", "[img images/");
 		string = string.replaceAll("src=\"http(s)*://[a-z A-Z_0-9./-]*/", "");
 		string = string.replaceAll("\"[ ]*alt=\"[a-z A-Z_0-9./-]*", "");
+		string = string.replaceAll("\"[ ]*width=\"[a-z A-Z_0-9./-]*", "");
 		string = string.replaceAll("\"(|/| | /)>", " ]");
 		string = string.replaceAll("<[ ]*img ", "");
- 
+
 		return string;
 
 	}
 
 	private String parseiaTagCode(String string) {
-		
+
 		for (int i = 0; i < string.length(); i++) {
 			string = string.replaceFirst("```", "[code]");
 			string = string.replaceFirst("```", "[/code]");
 		}
-		
+
 		return string;
 	}
 
@@ -96,7 +100,8 @@ public class ParserAfc {
 		while (scanner.hasNext()) {
 			String token = scanner.next();
 
-			if (token.matches("src=\"http(s)*://[a-z A-Z_0-9./-]*\"((|/)>)*")) {
+			if (token
+					.matches("src=\"http(s)*://[a-z A-Z_0-9./-]*\"((|/)>)*[ ,.]*")) {
 				String link = (token.split("\"", 3)[1]);
 				links.add(link);
 			}
@@ -119,7 +124,7 @@ public class ParserAfc {
 
 		System.out.println(">>\tParseando exercicios...");
 
-		texto += "\n\n[section Exercicios]\n\n[exercise]";
+		texto += "\n\n[section Exercícios]\n\n[exercise]";
 
 		for (Exercicio exercicio : secao.getExercicios().getExercicios()) {
 			texto += "\n\t[question]";
