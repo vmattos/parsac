@@ -67,7 +67,6 @@ public class ExerciciosConverter implements Converter {
 				reader.moveUp();
 				reader.moveDown();
 				reader.moveDown();
-				System.out.println(reader.getNodeName());
 
 				exercicio.setResposta(reader.getValue());
 

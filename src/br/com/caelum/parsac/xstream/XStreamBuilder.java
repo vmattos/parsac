@@ -1,6 +1,5 @@
 package br.com.caelum.parsac.xstream;
 
-import antlr.collections.List;
 import br.com.caelum.parsac.modelo.Alternativa;
 import br.com.caelum.parsac.modelo.Curso;
 import br.com.caelum.parsac.modelo.Exercicio;
@@ -19,7 +18,6 @@ public class XStreamBuilder {
 		xstream.processAnnotations(Alternativa.class);
 		xstream.processAnnotations(ExercicioAberto.class);
 		xstream.processAnnotations(ExercicioMultiplaEscolha.class);
-		xstream.alias("cursos", List.class);
 		xstream.setMode(XStream.NO_REFERENCES);
 
 		return xstream;

@@ -13,75 +13,108 @@ import br.com.caelum.parsac.modelo.Secao;
 
 public class ParserAfc {
 
-	private List<String> linguagens = new ArrayList<String>();
 	private List<String> links = new ArrayList<String>();
 	private List<String> respostas = new ArrayList<String>();
 
-	public ParserAfc() {
-		linguagens.add("java");
-		linguagens.add("xml");
-		linguagens.add("html");
-		linguagens.add("ruby");
-		linguagens.add("js");
-		linguagens.add("sql");
-		linguagens.add("css");
-		linguagens.add("bash");
-		linguagens.add("c#");
-	}
-
 	public String parseiaTagsOnline(String string) throws IOException {
-
-		// for (String linguagem : linguagens) {
-		// string = string.replaceAll(Pattern.quote("[") + "(" + linguagem
-		// + ")" + Pattern.quote("]"), "[code " + linguagem + "]");
-		// string = string.replaceAll(Pattern.quote("[/") + "(" + linguagem
-		// + ")" + Pattern.quote("]"), "[/code]");
-		// }
 
 		string = string.replaceAll("class=\"linked-list\"", "");
 
-		string = string.replaceAll("<[ ]*(b|strong|u)[ ]*>", "**");
-		string = string.replaceAll("<[ ]*/[ ]*(b|strong|u)[ ]*>", "**");
+		// Itálico precisa ser parseado antes do negrito, para a gambiarra
+		// funcionar
+		string = parseiaItalico(string);
+
+		string = parseiaNegrito(string);
 
 		string = parseiaTagCode(string);
-		string = string.replaceAll("`", "%%");
 
-		string = string.replaceAll("<[ ]*(em|i)[ ]*>", "::");
-		string = string.replaceAll("<[ ]*/[ ]*(em|i)[ ]*>", "::");
+		string = parseiaCode(string);
 
-		string = string.replaceAll("<[ ]*code[ ]*>", "%%");
-		string = string.replaceAll("<[ ]*/[ ]*code[ ]*>", "%%");
+		string = parseiaLista(string);
 
-		// string = string.replaceAll("<[ ]*h1[ ]*>", "[section ");
-		// string = string.replaceAll("<[ ]*/[ ]*h1[ ]*>", "]");
+		string = parseiaItemLista(string);
 
-		// string = string.replaceAll("<[ ]*h[0-9]*[ ]*>", "[title ");
-		// string = string.replaceAll("<[ ]*/[ ]*h[0-9]*[ ]*>", "]");
+		string = removeTagHr(string);
 
-		string = string.replaceAll("<[ ]*(ul|ol)[ ]*>", "[list]");
-		string = string.replaceAll("<[ ]*/[ ]*(ul|ol)[ ]*>", "[/list]");
+		string = removeLinksDeixandoSomenteOTexto(string);
 
-		string = string.replaceAll("<[ ]*li[ ]*>", "* ");
-		string = string.replaceAll("<[ ]*/[ ]*li[ ]*>", "");
+		string = parseiaImagens(string);
+
+		return string;
+
+	}
+
+	private String removeTagHr(String string) {
 
 		string = string.replaceAll("<[ ]*hr[ ]*>", "");
 		string = string.replaceAll("<[ ]*hr[ ]*/[ ]*>", "");
 
-		string = string
-				.replaceAll(
-						"<[ ]*a[ ]*href[ ]*=[ ]*\"http(s)*://[a-z A-Z_0-9./-]*\"[ ]*(target=\"_blank\")*>",
-						"");
-		string = string.replaceAll("<[ ]*/[ ]*a[ ]*>", "");
+		return string;
+	}
+
+	private String parseiaImagens(String string) {
 
 		string = string.replaceAll("<[ ]*img ", "[img images/");
 		string = string.replaceAll("src=\"http(s)*://[a-z A-Z_0-9./-]*/", "");
 		string = string.replaceAll("\"[ ]*alt=\"[a-z A-Z_0-9./-]*", "");
 		string = string.replaceAll("\"[ ]*width=\"[a-z A-Z_0-9./-]*", "");
 		string = string.replaceAll("\"(|/| | /)>", " ]");
-		string = string.replaceAll("<[ ]*img ", "");
 
 		return string;
+	}
 
+	private String removeLinksDeixandoSomenteOTexto(String string) {
+
+		string = string
+				.replaceAll(
+						"<[ ]*a[ ]*href[ ]*=[ ]*\"http(s)*://[a-z A-Z_0-9./-]*\"[ ]*(target=\"_blank\")*>",
+						"");
+		string = string.replaceAll("<[ ]*/[ ]*a[ ]*>", "");
+		
+		return string;
+	}
+
+	private String parseiaItemLista(String string) {
+
+		string = string.replaceAll("<[ ]*li[ ]*>", "* ");
+		string = string.replaceAll("<[ ]*/[ ]*li[ ]*>", "");
+
+		return string;
+	}
+
+	private String parseiaLista(String string) {
+
+		string = string.replaceAll("<[ ]*(ul|ol)[ ]*>", "[list]");
+		string = string.replaceAll("<[ ]*/[ ]*(ul|ol)[ ]*>", "[/list]");
+
+		return string;
+	}
+
+	private String parseiaItalico(String string) {
+
+		string = string.replaceAll("<[ ]*(em|i)[ ]*>", "::");
+		string = string.replaceAll("<[ ]*/[ ]*(em|i)[ ]*>", "::");
+		string = string.replaceAll("\\*([A-Za-zÀ-ú0-9]+)\\*", "::$1::");
+
+		return string;
+	}
+
+	private String parseiaCode(String string) {
+
+		string = string.replaceAll("<[ ]*code[ ]*>", "%%");
+		string = string.replaceAll("<[ ]*/[ ]*code[ ]*>", "%%");
+		string = string.replaceAll("`", "%%");
+
+		return string;
+	}
+
+	private String parseiaNegrito(String string) {
+
+		string = string.replaceAll("<[ ]*(b|strong|u)[ ]*>", "**");
+		string = string.replaceAll("<[ ]*/[ ]*(b|strong|u)[ ]*>", "**");
+		string = string.replaceAll("\\*::([A-Za-zÀ-ú0-9]+)::\\*", "**$1**");
+
+		return string;
 	}
 
 	private String parseiaTagCode(String string) {
@@ -95,6 +128,7 @@ public class ParserAfc {
 	}
 
 	public List<String> pegaLinksDasImagens(String string) {
+
 		Scanner scanner = new Scanner(string);
 
 		while (scanner.hasNext()) {

@@ -24,14 +24,13 @@ public class Main {
 
 		List<String> listaDeImagens = new ArrayList<String>();
 
-		// Como o Web Service mudou, podemos usar um arquivo fixo para testar:
-		// File xml = new File("FJ95.xml");
 
 		ClienteWS clienteWS = new ClienteWS();
 		String xml = clienteWS
 				.consomeWebService("http://dl.dropboxusercontent.com/u/2682197/tmp/eclipse.xml");
 
 		ParserAfc parser = new ParserAfc();
+		
 		Curso cursoXML = (Curso) xstream.fromXML(xml);
 
 		AntSetup ant = new AntSetup();
@@ -56,7 +55,7 @@ public class Main {
 			BufferedWriter br = new BufferedWriter(new FileWriter(arquivoAfc));
 
 			System.out
-					.println("Parseando a secao " + secao.getNumero() + "...");
+					.println("Parseando a seção " + secao.getNumero() + "...");
 			String cursoParseado = parser.parseiaCurso(cursoXML,
 					Integer.parseInt(numeroDaSecao) - 1);
 
@@ -67,6 +66,7 @@ public class Main {
 		}
 
 		System.out.println("Baixando as imagens...");
+		
 		ant.setListaDeImagens(listaDeImagens);
 		ant.baixaImagens();
 

@@ -12,14 +12,14 @@ public class ClienteWS {
 	public String consomeWebService(String webService) throws IOException {
 
 		URL url = new URL(webService);
-		HttpURLConnection con = (HttpURLConnection) url.openConnection();
-		StringBuilder builder = getBuilder(con);
-		
-		System.out.println(builder.toString());
+		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+		StringBuilder builder = getBuilder(connection);
 
-		return builder.toString();
+		String xml = builder.toString();
+
+		return xml;
 	}
-	
+
 	private StringBuilder getBuilder(HttpURLConnection connection)
 			throws IOException {
 

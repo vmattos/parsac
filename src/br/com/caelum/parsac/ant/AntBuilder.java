@@ -18,15 +18,21 @@ public class AntBuilder {
 	}
 
 	public void build() {
-		
+
 		File buildFile = new File("build.xml");
-		Project p = new Project();
-		p.setUserProperty("ant.file", buildFile.getAbsolutePath());
-		p.setUserProperty("curso.dir", nomeDoDiretorio);
-		p.init();
+		Project project = new Project();
+		
+		project.setUserProperty("ant.file", buildFile.getAbsolutePath());
+		project.setUserProperty("curso.dir", nomeDoDiretorio);
+		
+		project.init();
+		
 		ProjectHelper helper = ProjectHelper.getProjectHelper();
-		p.addReference("ant.projectHelper", helper);
-		helper.parse(p, buildFile);
-		p.executeTarget("prepara-diretorio-curso");
+		
+		project.addReference("ant.projectHelper", helper);
+		
+		helper.parse(project, buildFile);
+		
+		project.executeTarget("prepara-diretorio-curso");
 	}
 }
