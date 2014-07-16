@@ -20,7 +20,7 @@ public class ParserAfc {
 
 		string = string.replaceAll("class=\"linked-list\"", "");
 
-		// Itálico precisa ser parseado antes do negrito, para a gambiarra
+		// Itálico precisa ser parseado antes do negrito, para a ~gambiarra~
 		// funcionar
 		string = parseiaItalico(string);
 
@@ -30,13 +30,13 @@ public class ParserAfc {
 
 		string = parseiaCode(string);
 
-		string = parseiaLista(string);
+		// string = parseiaLista(string);
 
-		string = parseiaItemLista(string);
+		// string = parseiaItemLista(string);
 
 		string = removeTagHr(string);
 
-		string = removeLinksDeixandoSomenteOTexto(string);
+		// string = removeLinksDeixandoSomenteOTexto(string);
 
 		string = parseiaImagens(string);
 
@@ -54,11 +54,12 @@ public class ParserAfc {
 
 	private String parseiaImagens(String string) {
 
-		string = string.replaceAll("<[ ]*img ", "[img images/");
 		string = string.replaceAll("src=\"http(s)*://[a-z A-Z_0-9./-]*/", "");
 		string = string.replaceAll("\"[ ]*alt=\"[a-z A-Z_0-9./-]*", "");
 		string = string.replaceAll("\"[ ]*width=\"[a-z A-Z_0-9./-]*", "");
-		string = string.replaceAll("\"(|/| | /)>", " ]");
+		string = string.replaceAll("img ", "img images/");
+		string = string.replaceAll("<[ ]*([a-z A-Z_0-9./-]*)\"(|/| | /)>",
+				"[$1]");
 
 		return string;
 	}
@@ -70,7 +71,7 @@ public class ParserAfc {
 						"<[ ]*a[ ]*href[ ]*=[ ]*\"http(s)*://[a-z A-Z_0-9./-]*\"[ ]*(target=\"_blank\")*>",
 						"");
 		string = string.replaceAll("<[ ]*/[ ]*a[ ]*>", "");
-		
+
 		return string;
 	}
 
@@ -94,7 +95,16 @@ public class ParserAfc {
 
 		string = string.replaceAll("<[ ]*(em|i)[ ]*>", "::");
 		string = string.replaceAll("<[ ]*/[ ]*(em|i)[ ]*>", "::");
-		string = string.replaceAll("\\*([A-Za-zÀ-ú0-9]+)\\*", "::$1::");
+		string = string.replaceAll("\\*([^*]+)\\*", "::$1::");
+
+		return string;
+	}
+
+	private String parseiaNegrito(String string) {
+
+		string = string.replaceAll("<[ ]*(b|strong|u)[ ]*>", "**");
+		string = string.replaceAll("<[ ]*/[ ]*(b|strong|u)[ ]*>", "**");
+		string = string.replaceAll("::::", "**");
 
 		return string;
 	}
@@ -108,19 +118,11 @@ public class ParserAfc {
 		return string;
 	}
 
-	private String parseiaNegrito(String string) {
-
-		string = string.replaceAll("<[ ]*(b|strong|u)[ ]*>", "**");
-		string = string.replaceAll("<[ ]*/[ ]*(b|strong|u)[ ]*>", "**");
-		string = string.replaceAll("\\*::([A-Za-zÀ-ú0-9]+)::\\*", "**$1**");
-
-		return string;
-	}
-
 	private String parseiaTagCode(String string) {
 
 		for (int i = 0; i < string.length(); i++) {
 			string = string.replaceFirst("```", "[code]");
+
 			string = string.replaceFirst("```", "[/code]");
 		}
 

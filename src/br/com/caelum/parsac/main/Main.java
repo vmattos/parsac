@@ -24,18 +24,17 @@ public class Main {
 
 		List<String> listaDeImagens = new ArrayList<String>();
 
-
 		ClienteWS clienteWS = new ClienteWS();
 		String xml = clienteWS
-				.consomeWebService("http://dl.dropboxusercontent.com/u/2682197/tmp/eclipse.xml");
+				.consomeWebService("http://www.alura.com.br/webservice/course/php-mysql-e-fundamentos-da-web/AUafs9y8s9fdaA");
 
 		ParserAfc parser = new ParserAfc();
-		
+
 		Curso cursoXML = (Curso) xstream.fromXML(xml);
 
 		AntSetup ant = new AntSetup();
 
-		System.out.println("Criando diretorio " + cursoXML.getSigla() + "...");
+		System.out.println("Criando diretório " + cursoXML.getSigla() + "...");
 
 		ant.setNomeDoDiretorio(cursoXML.getSigla());
 		ant.execute();
@@ -66,7 +65,7 @@ public class Main {
 		}
 
 		System.out.println("Baixando as imagens...");
-		
+
 		ant.setListaDeImagens(listaDeImagens);
 		ant.baixaImagens();
 
